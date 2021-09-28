@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 
 {% block title %}
-This is index title
+App landing
 {% endblock title %}
 
 {% block content %}
-Main content of index.html
+<form name="form" action="/trial/usertype/" method="POST" >{% csrf_token %}
+   <select name="usertype">
+       <option value="Public">Public</option>
+       <option value="Official">Official</option>
+   </select>
+    <input type="submit" value="Move to Login" >
+</form>
 {% endblock content %}
