@@ -16,5 +16,11 @@ class Public(models.Model):
     phoneno=models.IntegerField()
     region=models.CharField(max_length=50)
 
+class tourist(models.model):
+    location = models.CharField(max_length = 180)
+    review = models.CharField(max_length = 500)
+    rating = models.IntegerField()              #out of 5
+    image = models.ImageField(upload_to = '')   #path to image
+
 
 
