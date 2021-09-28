@@ -16,7 +16,7 @@ class Public(models.Model):
     phoneno=models.IntegerField()
     region=models.CharField(max_length=50)
 
-class tourist(models.model):
+class tourist(models.Model):
     location = models.CharField(max_length = 180)
     review = models.CharField(max_length = 500)
     rating = models.IntegerField()              #out of 5
