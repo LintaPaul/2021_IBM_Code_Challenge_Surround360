@@ -28,9 +28,10 @@ body {
 }
 .type-choose{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 700;
-    margin-left: 10%;
-    color: rgb(30, 7, 56);
+    font-weight: 100px;
+    margin-left: 5%;
+    margin-top: 2%;
+    color: white;
 }
 
 .sel{

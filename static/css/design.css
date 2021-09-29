@@ -43,7 +43,7 @@ body {
     background: #000000;
     text-align: center;
     transition: 0.25s;
-    margin-top: 100px
+    margin-top: 10px;
 }
 
 .box input[type="text"],
@@ -164,4 +164,26 @@ a.socialIcon:hover,
   {
     color: #FFFFFF;
     font-family: inherit;
+  }
+  
+  .nav-tabs{
+      margin-left: 10px;
+  }
+  .nav-tabs > li > a{
+    border: medium none;
+    color: white;
+   
+  }
+   .nav-item
+   {
+       background-color: black;
+   }
+  
+   .nav-tabs >li>a:focus{
+       background-color: #000000;
+   }
+  .nav-tabs > li > a:hover{
+      border: medium none;
+      border-radius: 0;
+      color:#fff;
   }
