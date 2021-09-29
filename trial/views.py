@@ -1,4 +1,4 @@
-from django.shortcuts import render  
+from django.shortcuts import render,get_object_or_404  
 #importing loading from django template  
 from django.template import loader  
 # Create your views here.  
@@ -60,7 +60,7 @@ def login_public(request):
         user_object = None
       if user_object:
         messages.success(request,'Login successfull!!!')
-        return HttpResponseRedirect('/trial/home/')
+        return render(request,'dashboard_public.html',{'user': user_object})
       else:
         messages.success(request,'Invalid Login')
         return HttpResponseRedirect('/trial/public/')
