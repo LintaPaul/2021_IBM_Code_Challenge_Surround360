@@ -67,7 +67,9 @@ def login_public(request):
     else:
         mydetails=Loggeduser()
   return HttpResponseRedirect('/trial/public/')
-    
+  
+  def blog(request):
+    return render(request, 'blog.html')
 
 
 
