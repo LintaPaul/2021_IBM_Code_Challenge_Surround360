@@ -16,6 +16,7 @@ class Public(models.Model):
     phoneno=models.IntegerField()
     region=models.CharField(max_length=50)
 
+<<<<<<< HEAD
 class Complaints(models.Model):
     DEPTS=(('W',"Water"),('E',"Electricity"),('R',"Roads"))
     STATUS=(("US","unsolved"),("S","solved"))
@@ -24,6 +25,13 @@ class Complaints(models.Model):
     category=models.CharField(max_length=30)
     complaint=models.CharField(max_length=1000)
     status=models.CharField(max_length=2,choices=STATUS)
+=======
+class tourist(models.Model):
+    location = models.CharField(max_length = 180)
+    review = models.CharField(max_length = 500)
+    rating = models.IntegerField()              #out of 5
+    image = models.ImageField(upload_to = '')   #path to image
+>>>>>>> 1f2f3a6e70acd8102634f5b34658188b49e52f20
 
 
 
