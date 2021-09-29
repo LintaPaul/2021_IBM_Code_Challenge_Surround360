@@ -59,9 +59,11 @@ def login_public(request):
       except Public.DoesNotExist:
         user_object = None
       if user_object:
+        messages.success(request,'Login successfull!!!')
         return HttpResponseRedirect('/trial/home/')
       else:
-        return HttpResponse("no user")
+        messages.success(request,'Invalid Login')
+        return HttpResponseRedirect('/trial/public/')
     else:
         mydetails=Loggeduser()
   return HttpResponseRedirect('/trial/public/')

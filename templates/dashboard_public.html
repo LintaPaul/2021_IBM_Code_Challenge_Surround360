@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dashboard_user
+{% endblock title %}
+
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+ {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+{% endfor %}
+
+{% endif %}
+{% endblock content %}
