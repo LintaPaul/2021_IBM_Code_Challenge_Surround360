@@ -76,7 +76,6 @@ def login_public(request):
     else:
         mydetails=Loggeduser()
   return HttpResponseRedirect('/trial/public/')
-<<<<<<< HEAD
 
 def file_water(request):
     if request.method=="POST":
@@ -89,11 +88,9 @@ def file_water(request):
     return HttpResponseRedirect('/trial/water/')
 
 
-=======
   
 def blog(request):
   return render(request, 'blog.html')
->>>>>>> d454f751a439f0a6a8a6079ae528f21afb7e3a71
 
 def login_official(request):
   name = 'nil'
@@ -105,10 +102,10 @@ def login_official(request):
       eid = details.cleaned_data['eid']
       print(name, eid)
       try:
-        official_object = Official.objects.filter(empid = eid, name = name)
+        official_object = Official.objects.filter(name = name, empid=eid )
       except Official.DoesNotExist:
         official_object = None
-      if official_object is not None:
+      if official_object:
         messages.success(request, 'Login Successfull!')
         return HttpResponseRedirect('/trial/officialhome/')
       else:
