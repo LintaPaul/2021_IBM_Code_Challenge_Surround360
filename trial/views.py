@@ -42,6 +42,15 @@ def gotocwater(request):
   luser=request.session.get('user')
   return render(request, 'complaints_water.html',{'user':luser})
 
+def gotocelec(request):
+  luser=request.session.get('user')
+  return render(request, 'complaints_elec.html',{'user':luser})
+
+def gotocroads(request):
+  luser=request.session.get('user')
+  return render(request, 'complaints_road.html',{'user':luser})
+
+
 def officialLanding(request):
   return render(request, 'landing_official.html')
 
