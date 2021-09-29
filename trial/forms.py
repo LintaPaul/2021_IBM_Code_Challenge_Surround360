@@ -24,5 +24,5 @@ class LoggedOfficial(forms.Form):
 class Complaints(forms.ModelForm):
     class Meta:
         model=Complaints
-        fields=["region","dept","category","complaint","sender","status"]
-        labels={'region':"Region",'dept':"Department",'category':"Sub Category",'complaint':"Complaint",'sender':"Sender",'status':"status"}
+        fields=["region","dept","category","complaint","landmark","sender","status"]
+        labels={'region':"Region",'dept':"Department",'category':"Sub Category",'complaint':"Complaint",'landmark':"Landmark", 'sender':"Sender",'status':"status"}

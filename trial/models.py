@@ -24,6 +24,7 @@ class Complaints(models.Model):
     category=models.CharField(max_length=30)
     complaint=models.CharField(max_length=1000)
     status=models.CharField(max_length=2,choices=STATUS)
+    landmark=models.CharField(max_length=100, default="na")
     sender=models.CharField(max_length=30,default="Nill")
     
 class tourist(models.Model):
