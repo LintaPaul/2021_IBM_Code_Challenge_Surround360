@@ -10,5 +10,6 @@ urlpatterns = [
     path('form/',views.register,name="form"),
     path('login/',views.login_public,name="login"),
     path('home/',views.gotohome,name="home"),
+    path('blog/', views.blog, name = "blog")
 ]
 
