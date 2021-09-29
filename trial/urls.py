@@ -10,6 +10,7 @@ urlpatterns = [
     path('official/',views.official,name="official"),
     path('form/',views.register,name="form"),
     path('login/',views.login_public,name="login"),
+    path('login_official/',views.login_official,name="officialhome"),
     path('officialhome/',views.login_official,name="officialhome"),
     path('logout/', views.logOut, name = 'logout'),
     path('home/',views.gotohome,name="home"),

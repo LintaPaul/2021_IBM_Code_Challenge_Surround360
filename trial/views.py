@@ -125,10 +125,10 @@ def login_official(request):
         return render(request,'landing_official.html',{'user': official_object})
       else:
         messages.warning(request, f'Invalid Login')
-        return HttpResponseRedirect('/trial/official/')
+        return HttpResponseRedirect('/trial/index/')
     else:
       details = LoggedOfficial()
-  return HttpResponseRedirect('/trial/official/')
+  return HttpResponseRedirect('/trial/index/')
     
 def complaints(request):
   off = request.session.get('eid')
