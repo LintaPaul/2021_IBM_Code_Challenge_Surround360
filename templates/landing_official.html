@@ -6,7 +6,6 @@ Dashboard_user
 
 {% block content %}
 {% load static %}
-<h1>Official landing</h1>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +51,7 @@ Dashboard_user
         <div class="col-sm-5">
             <div class="card"  style="margin-top: 10%; margin-left:60%;">
               <div class="card-body">
-                <h5 class="card-title">Given By</h5>
+                <h5 class="card-title">Sub Department</h5>
                 <p class="card-text"></p>
                 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
               </div>
@@ -61,7 +60,10 @@ Dashboard_user
           <div class="col-sm-5">
             <div class="card"  style="margin-top: 10%; margin-left:60%;">
               <div class="card-body">
-                <h5 class="card-title">Complaints</h5>
+                <a href="/trial/viewcomplaints/">
+                  <button class="button_slide slide_down" href = "/trial/viewcomplaints/"><h5 class="btntxt mb-0">Complaints</h5></button>
+                </a>
+                
                 <p class="card-text"></p>
                 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
               </div>

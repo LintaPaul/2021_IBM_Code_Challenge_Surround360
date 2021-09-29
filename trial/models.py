@@ -2,10 +2,12 @@ from django.db import models
 
 # Create your models here.
 class Official(models.Model):
+    DEPTS=(('W',"Water"),('E',"Electricity"),('R',"Roads"))
+    SUBDEPS = (('WL', "Water Leaks"), ("SL", "Shortage of supply"),('PF', "Power failure"), ('LB', "Line damage"), ('RD', "Road damage"),('TR', "Tarring required"))
     region=models.CharField(max_length=50)
     name=models.CharField(max_length=50)
-    department=models.CharField(max_length=50)
-    subdept=models.CharField(max_length=50)
+    department=models.CharField(max_length=1,choices=DEPTS)
+    subdept=models.CharField(max_length=2,choices=SUBDEPS)
     empid=models.CharField(max_length=10, primary_key=True)
     phoneno=models.IntegerField()
     score=models.IntegerField()
