@@ -4,8 +4,8 @@ from django.template import loader
 # Create your views here.  
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from .models import Public
-from .forms import Usertype,Newuser,Loggeduser
+from .models import Public, Official
+from .forms import Usertype,Newuser,Loggeduser, LoggedOfficial
 from django.contrib import messages
 
 def index(request):  
@@ -36,6 +36,9 @@ def gotoregister(request):
 
 def gotohome(request):
   return render(request, 'dashboard_public.html')
+
+def officialLanding(request):
+  return render(request, 'landing_official.html')
 
 def register(request):
   if request.method=="POST":
@@ -68,9 +71,31 @@ def login_public(request):
         mydetails=Loggeduser()
   return HttpResponseRedirect('/trial/public/')
   
-  def blog(request):
-    return render(request, 'blog.html')
+def blog(request):
+  return render(request, 'blog.html')
 
-
+def login_official(request):
+  name = 'nil'
+  eid = 'nil'
+  if request.method == 'POST':
+    details = LoggedOfficial(request.POST)
+    if details.is_valid():
+      name = details.cleaned_data['name']
+      eid = details.cleaned_data['eid']
+      print(name, eid)
+      try:
+        official_object = Official.objects.filter(empid = eid, name = name)
+      except Official.DoesNotExist:
+        official_object = None
+      if official_object is not None:
+        messages.success(request, 'Login Successfull!')
+        return HttpResponseRedirect('/trial/officialhome/')
+      else:
+        messages.warning(request, 'Invalid Login')
+        return HttpResponseRedirect('/trial/official/')
+    else:
+      details = LoggedOfficial()
+  return HttpResponseRedirect('/trial/official/')
+    
 
 

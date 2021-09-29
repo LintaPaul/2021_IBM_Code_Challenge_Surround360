@@ -9,7 +9,10 @@ urlpatterns = [
     path('official/',views.official,name="official"),
     path('form/',views.register,name="form"),
     path('login/',views.login_public,name="login"),
+    path('login_official/',views.login_official,name="login"),
     path('home/',views.gotohome,name="home"),
-    path('blog/', views.blog, name = "blog")
+    path('blog/', views.blog, name = "blog"),
+    path('officialhome/', views.officialLanding, name = "officialhome"),
+
 ]
 

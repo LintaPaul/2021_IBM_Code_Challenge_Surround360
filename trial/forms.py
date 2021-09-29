@@ -17,6 +17,10 @@ class Loggeduser(forms.Form):
     name=forms.CharField(label="name")
     phoneno=forms.CharField(label="phoneno")
 
+class LoggedOfficial(forms.Form):
+    name = forms.CharField(label = 'name')
+    eid = forms.CharField(label = 'eid')
+    
 class Complaints(forms.ModelForm):
     class Meta:
         model=Complaints
