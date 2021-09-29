@@ -36,7 +36,7 @@
   .side-menu{
     position: fixed;
     background: #9e0633;
-    width: 16vw;
+    width: 19vw;
     height: 100vh;
     /* min-height: 100vh; */
     display: flex;
@@ -48,7 +48,10 @@
     align-items: center;
     justify-content: center;
   }
-  
+  .dash{
+    font-weight: 800;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
   .side-menu li{
     font-size: 20px;
     padding: 10px 40px;
