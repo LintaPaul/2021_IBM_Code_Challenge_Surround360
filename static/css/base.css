@@ -11,6 +11,36 @@ body {
     color: white;
     font: 5.5em Georgia, serif;
 }
+.sub-heading{
+   margin-top: -70px;
+    margin-left: 7%;
+   font-size: 1.18em;
+    color: #181616;
+    font-weight: 800;
+    font-style: inherit;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.brief{
+    margin: 5%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 800;
+    margin-left: 10%;
+}
+.type-choose{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 700;
+    margin-left: 10%;
+    color: rgb(30, 7, 56);
+}
+
 .sel{
-    margin: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: whitesmoke;
+    margin-left: 20%;
+    border: 1px solid bisque; 
+    background-color: black; 
+    width: 15%; 
+    height: 5.7%;
+    border-radius: 10%;
+    align-content: center;
 }
