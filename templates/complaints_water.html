@@ -54,7 +54,7 @@ Dashboard_user
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/design.css'%}">
+    <link rel="stylesheet" href="{% static 'css/complaints.css'%}">
     <title>Document</title>
     <!-- <style>
         
@@ -68,49 +68,53 @@ Dashboard_user
             <div class="col-md-12">
                 <div class="card" >
                     
-                    <form action="/trial/c_water/" method="POST">
-                        {% csrf_token %}
-                        <div class="form-group"><label class="label">Region</label><input type="text" name="region">
+                    <div class="container">
+                        <form action="/trial/c_water/" method="POST" class="box">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <!-- <label class="label">Region</label> -->
+                                <input type="text" name="region" placeholder="Enter your Region">
+                                </div>
+                                <div class="form-group">
+                                    <select name="dept">
+                                        <option value="W">Water</option>
+                                    </select>
+                             </div>   
+                             <div class="form-group"><label class="label">Category</label>
+                                 <select name="category">
+                                    <option value="WL">Water Leaks</option>
+                                    <option value="SS">Shortage of supply</option>
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label class="label">Give Your Complaint Description</label> -->
+                                <textarea placeholder="Give Your Complaint Description" class="txtarea" name="complaint"></textarea>
                             </div>
                             <div class="form-group">
-                                <select name="dept">
-                                    <option value="W">Water</option>
-                                </select>
-                         </div>   
-                         <div class="form-group"><label class="label">Category</label>
-                             <select name="category">
-                                <option value="WL">Water Leaks</option>
-                                <option value="SS">Shortage of supply</option>
-                            </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="label">Give Your Complaint Description</label>
-                            <textarea name="complaint"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="label">Specify your Address/Landmark to identify the place</label>
-                            
-                            <textarea name="landmark"></textarea>
-                        </div>
-                               <div class="form-group">
-                                <label class="label">Complaint filed by </label>
-                                   
-                                   <select name="sender">
-                                    <option value="{{ user }}">{{ user }}</option>
-                                </select>
-                               </div>
-                               <div class="form-group">
-                                <label class="label">Status of Complaint </label>
+                                <!-- <label class="label">Specify your Address/Landmark to identify the place</label> -->
                                 
-                                <select name="status">
-                                    <option value="US">Unsolved</option>
-                                </select>
+                                <textarea placeholder="Specify your Address/Landmark to identify the place" class="txtarea" name="landmark"></textarea>
                             </div>
-                        <div class="form-group">
-                            <input type="submit" value="File the Complaint">
-                            <input type="reset"  value="Cancel"> 
-                        </div>
-                    </form>
+                                   <div class="form-group">
+                                    <label class="label">Complaint filed by </label>
+                                       
+                                       <select name="sender">
+                                        <option value="{{ user }}">{{ user }}</option>
+                                    </select>
+                                   </div>
+                                   <div class="form-group">
+                                    <label class="label">Status of Complaint </label>
+                                    
+                                    <select name="status">
+                                        <option value="US">Unsolved</option>
+                                    </select>
+                                </div>
+                            <div class="form-group">
+                                <input class="btn" type="submit" value="File the Complaint">
+                                <input class="btn" type="reset"  value="Cancel"> 
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
