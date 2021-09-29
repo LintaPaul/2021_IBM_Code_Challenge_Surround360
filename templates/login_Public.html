@@ -31,8 +31,8 @@ App landing
                         {% csrf_token %}
                         <img class="card-img" src="{% static 'images/finallogo.jpeg' %}" alt="logo"/>
                         <h1>WELCOME</h1>
-                        <p class="text-muted"> </p> <input type="text" name="name" placeholder="Your name"> 
-                        <input type="text" name="phoneno" placeholder="Enter your phone number"> 
+                        <p class="text-muted"> </p> <input type="text" name="name" placeholder="Your name" required> 
+                        <input type="text" name="phoneno" placeholder="Enter your phone number" required> 
                          <!-- <a class="forgot text-muted" href="#">Forgot password?</a> -->
                           <input type="submit" value="Login">
                         <div class="col-md-12">
