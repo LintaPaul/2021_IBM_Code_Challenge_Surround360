@@ -24,20 +24,7 @@ def logOut(request):
   logout(request)
   return HttpResponseRedirect('/trial/index')
 
-def usertype(request):
-  type_sel="nill"
-  if request.method == "POST":
-    mytype=Usertype(request.POST)
 
-    if mytype.is_valid():
-      type_sel=mytype.cleaned_data['usertype']
-      if type_sel=="Public":
-        return HttpResponseRedirect('/trial/public/')
-      elif type_sel=="Official":
-        return HttpResponseRedirect('/trial/official/')
-    else:
-      mytype=Usertype()
-    return HttpResponseRedirect('/trial/index/')
 def gotoregister(request):
   return render(request, 'register_public.html')
 
@@ -87,10 +74,10 @@ def login_public(request):
         return render(request,'dashboard_public.html',{'user': user_object})
       else:
         messages.success(request,'Invalid Login')
-        return HttpResponseRedirect('/trial/public/')
+        return HttpResponseRedirect('/trial/index/')
     else:
         mydetails=Loggeduser()
-  return HttpResponseRedirect('/trial/public/')
+  return HttpResponseRedirect('/trial/index/')
 
 def file_water(request):
     if request.method=="POST":
@@ -125,10 +112,10 @@ def login_official(request):
         return render(request,'landing_official.html',{'user': official_object})
       else:
         messages.warning(request, f'Invalid Login')
-        return HttpResponseRedirect('/trial/official/')
+        return HttpResponseRedirect('/trial/index/')
     else:
       details = LoggedOfficial()
-  return HttpResponseRedirect('/trial/official/')
+  return HttpResponseRedirect('/trial/index/')
     
 def complaints(request):
   off = request.session.get('eid')

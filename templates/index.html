@@ -5,6 +5,8 @@ App landing
 {% endblock title %}
 
 {% block content %}
+
+                           
 {% load static %}
 <!--<h1 class="heading">Surround 360</h1>
 <h2 class="sub-heading">Rest Your Head, We are Here!</h2>-->
@@ -76,7 +78,7 @@ App landing
                 <div class="col-md-12">
                     <div class="card" >
                         
-                        <form method="POST" action="/trial/login_official/" class="box">
+                        <form method="POST" action="/trial/officialhome/" class="box">
                             {% csrf_token %}
                             <img class="card-img" src="{% static 'images/finallogo.jpeg' %}" alt="logo"/>
                             <h1>WELCOME</h1>
@@ -92,13 +94,16 @@ App landing
                                     <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li>
                                 </ul> -->
                             </div>
+                            
                         </form>
+                        
                     </div>
                 </div>
             </div>
         </div>
       </div>
     </div>
+    
     <script>
         $(function(){ 
             $('.nav-tabs a').on('click', function (e) {
@@ -107,4 +112,14 @@ App landing
             });  
         });
         </script>
+        {% if messages%}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show"> 
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+    {% endfor %}
+    {% endif %}
 {% endblock content %}
