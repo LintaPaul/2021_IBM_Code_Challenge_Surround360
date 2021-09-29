@@ -6,7 +6,7 @@ Complaints_Electricity
 
 {% block content %}
 
-<form action="/trial/complaints/" method="POST">
+<!-- <form action="/trial/complaints/" method="POST">
     {% csrf_token %}
     <div class="form-group">
         Region:<input type="text" name="region">
@@ -46,7 +46,75 @@ Complaints_Electricity
         <input type="submit" value="File the Complaint">
         <input type="reset"  value="Cancel"> 
     </div>
-</form>
+</form> -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/complaints.css'%}">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" >
+                    
+                    <div class="container">
+                        <form action="/trial/complaints/" method="POST" class="box">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" name="region" placeholder="Enter your Region">
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Department</label>
+                                    <select name="dept">
+                                        <option value="E">Electricity</option>
+                                    </select>
+                             </div>   
+                             <div class="form-group"><label class="label">Category</label>
+                                 <select name="category">
+                                    <option value="PF">Power failure</option>
+                                    <option value="LB">Line Damage</option>
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                    <textarea placeholder="Give Your Complaint Description" class="txtarea" name="complaint"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Specify your Address/Landmark to identify the place" class="txtarea" name="landmark"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Complaint filed by </label>
+                                   
+                                   <select name="sender">
+                                    <option value="{{ user }}">{{ user }}</option>
+                                </select>
+                               </div>
+                               <div class="form-group">
+                                <label class="label">Status of Complaint </label>
+                                
+                                <select name="status">
+                                    <option value="US">Unsolved</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input class="btn" type="submit" value="File the Complaint">
+                                <input class="btn" type="reset"  value="Cancel"> 
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+</body>
+</html>
 {% if messages %}
 {% for message in messages %}
  {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
