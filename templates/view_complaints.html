@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Complaints
+{% endblock title %}
+
+{% block content %}
+{% load static %}
+<h1>Complaints</h1>
+<h2> {{official}}</h2>
+<link rel="stylesheet" href="{% static 'css/base.css'%}">
+{% for complaint in complaints%}
+		<article class="media content-section">
+			<div class="media-body">
+				<div class="article-metadata">
+					<a class="mr-2" href="#">{{ complaint.sender }}</a>
+					<small class="text-muted">{{ complaint.status}}</small>
+				</div>
+				
+				<p class="article-content">{{ complaint.complaint}}</p>
+				<p class="article-content">{{ complaint.id}}</p>
+				<button href = "#">Have you solved the issue</button>
+			</div>	
+		</article>
+{% endfor %}
+{% endblock content %}
