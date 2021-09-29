@@ -14,7 +14,7 @@ App landing
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/design.css'%}">
-    <title>Document</title>
+    <title>Official Login</title>
     <!-- <style>
         
 
@@ -27,7 +27,7 @@ App landing
             <div class="col-md-12">
                 <div class="card" >
                     
-                    <form method="POST" action="/trial/login_official/" class="box">
+                    <form method="POST" action="/trial/officialhome/" class="box">
                         {% csrf_token %}
                         <img class="card-img" src="{% static 'images/finallogo.jpeg' %}" alt="logo"/>
                         <h1>WELCOME</h1>
@@ -36,6 +36,13 @@ App landing
                         <input type="text" name="eid" placeholder="Employee id" required>
                         <!-- <a class="forgot text-muted" href="#">Forgot password?</a> -->
                         <input type="submit" name="" value="Login" >
+                        {% if messages%}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}"> 
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
                         <div class="col-md-12">
                             <!-- <ul class="social-network social-circle">
                                 <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>

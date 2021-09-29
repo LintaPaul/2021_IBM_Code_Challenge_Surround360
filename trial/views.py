@@ -9,6 +9,7 @@ from .forms import Usertype,Newuser,Loggeduser,Complaints
 from .models import Public, Official, Complaints
 from .forms import Usertype,Newuser,Loggeduser, LoggedOfficial
 from django.contrib import messages
+from django.contrib.auth import logout
 
 def index(request):  
   return render(request,'index.html')  
@@ -18,6 +19,10 @@ def public(request):
 
 def official(request):
   return render(request,'login_Official.html')
+
+def logOut(request):
+  logout(request)
+  return HttpResponseRedirect('/trial/index')
 
 def usertype(request):
   type_sel="nill"
@@ -115,11 +120,11 @@ def login_official(request):
       except Official.DoesNotExist:
         official_object = None
       if official_object:
-        messages.success(request, 'Login Successfull!')
+        # messages.success(request, 'Login Successfull!')
         request.session['eid'] = eid
         return render(request,'landing_official.html',{'user': official_object})
       else:
-        messages.warning(request, 'Invalid Login')
+        messages.warning(request, f'Invalid Login')
         return HttpResponseRedirect('/trial/official/')
     else:
       details = LoggedOfficial()
