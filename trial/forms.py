@@ -13,3 +13,6 @@ class Newuser(forms.ModelForm):
         fields=["name","phoneno","region",]
         labels={'name':"Name",'phoneno':"PhoneNumber",'region':"Region"}
         
+class Loggeduser(forms.Form):
+    name=forms.CharField(label="name")
+    phoneno=forms.CharField(label="phoneno")

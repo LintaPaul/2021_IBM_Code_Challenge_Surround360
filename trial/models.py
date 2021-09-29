@@ -13,7 +13,7 @@ class Official(models.Model):
 
 class Public(models.Model):
     name=models.CharField(max_length=30)
-    phoneno=models.IntegerField()
+    phoneno=models.IntegerField(primary_key=True)
     region=models.CharField(max_length=50)
 
 class Complaints(models.Model):

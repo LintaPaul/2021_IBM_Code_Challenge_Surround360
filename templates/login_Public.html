@@ -27,19 +27,16 @@ App landing
             <div class="col-md-12">
                 <div class="card" >
                     
-                    <form onsubmit="event.preventDefault()" class="box">
+                    <form  action="/trial/login/" method="POST" class="box">
+                        {% csrf_token %}
                         <img class="card-img" src="{% static 'images/finallogo.jpeg' %}" alt="logo"/>
                         <h1>WELCOME</h1>
                         <p class="text-muted"> </p> <input type="text" name="name" placeholder="Your name"> 
-                        <input type="text" name="phoneo" placeholder="Enter your phone number"> 
+                        <input type="text" name="phoneno" placeholder="Enter your phone number"> 
                          <!-- <a class="forgot text-muted" href="#">Forgot password?</a> -->
-                          <input type="submit" name="" value="Login" href="#">
+                          <input type="submit" value="Login">
                         <div class="col-md-12">
-                            <!-- <ul class="social-network social-circle">
-                                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li>
-                            </ul> -->
+                            <a href="/trial/form/">New user? Sign up</a>
                         </div>
                     </form>
                 </div>

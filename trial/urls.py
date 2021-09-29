@@ -8,5 +8,7 @@ urlpatterns = [
     path('public/',views.public, name="public"),
     path('official/',views.official,name="official"),
     path('form/',views.register,name="form"),
+    path('login/',views.login_public,name="login"),
+    path('home/',views.gotohome,name="home"),
 ]
 

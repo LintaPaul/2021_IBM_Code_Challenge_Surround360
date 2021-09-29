@@ -5,7 +5,9 @@ from django.template import loader
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .models import Public
-from .forms import Usertype,Newuser
+from .forms import Usertype,Newuser,Loggeduser
+from django.contrib import messages
+
 def index(request):  
   return render(request,'index.html')  
 
@@ -32,6 +34,9 @@ def usertype(request):
 def gotoregister(request):
   return render(request, 'register_public.html')
 
+def gotohome(request):
+  return render(request, 'dashboard_public.html')
+
 def register(request):
   if request.method=="POST":
     form=Newuser(request.POST)
@@ -40,5 +45,28 @@ def register(request):
     else:
       form=Newuser()
   return render(request,'register_public.html')
+
+def login_public(request):
+  phno=0
+  name="nill"
+  if request.method=="POST":
+    mydetails=Loggeduser(request.POST)
+    if mydetails.is_valid():
+      name=mydetails.cleaned_data['name']
+      phno=mydetails.cleaned_data['phoneno']
+      try:
+        user_object = Public.objects.filter(name=name,phoneno=phno)
+      except Public.DoesNotExist:
+        user_object = None
+      if user_object:
+        return HttpResponseRedirect('/trial/home/')
+      else:
+        return HttpResponse("no user")
+    else:
+        mydetails=Loggeduser()
+  return HttpResponseRedirect('/trial/public/')
+    
+
+
 
 
