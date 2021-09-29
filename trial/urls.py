@@ -7,5 +7,6 @@ urlpatterns = [
     path('usertype/',views.usertype, name="usertype"),
     path('public/',views.public, name="public"),
     path('official/',views.official,name="official"),
+    path('form/',views.register,name="form"),
 ]
 

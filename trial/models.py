@@ -16,5 +16,14 @@ class Public(models.Model):
     phoneno=models.IntegerField()
     region=models.CharField(max_length=50)
 
+class Complaints(models.Model):
+    DEPTS=(('W',"Water"),('E',"Electricity"),('R',"Roads"))
+    STATUS=(("US","unsolved"),("S","solved"))
+    region=models.CharField(max_length=50)
+    dept=models.CharField(max_length=1,choices=DEPTS)
+    category=models.CharField(max_length=30)
+    complaint=models.CharField(max_length=1000)
+    status=models.CharField(max_length=2,choices=STATUS)
+
 
 

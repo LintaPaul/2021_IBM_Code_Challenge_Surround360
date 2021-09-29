@@ -4,8 +4,8 @@ from django.template import loader
 # Create your views here.  
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-
-from .forms import Usertype
+from .models import Public
+from .forms import Usertype,Newuser
 def index(request):  
   return render(request,'index.html')  
 
@@ -29,5 +29,16 @@ def usertype(request):
     else:
       mytype=Usertype()
     return HttpResponseRedirect('/trial/index/')
+def gotoregister(request):
+  return render(request, 'register_public.html')
+
+def register(request):
+  if request.method=="POST":
+    form=Newuser(request.POST)
+    if form.is_valid():
+      form.save()
+    else:
+      form=Newuser()
+  return render(request,'register_public.html')
 
 
