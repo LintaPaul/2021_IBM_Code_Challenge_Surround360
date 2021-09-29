@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dashboard_user
+{% endblock title %}
+
+{% block content %}
+<h1>Official landing</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="{% static 'css/style1.css'%}">
+    <title>Official Landing Page</title>
+</head>
+<body>
+    <div class="side-menu">
+        <div class="brand-name">
+            <h1>Dashboard</h1>
+        </div>
+        <ul>
+            <li>Notifications</li>
+            <li>Profile</li>
+            <li>Logout</li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-5">
+          <div class="card" style="margin-top: 10%; margin-left:60%;">
+            <div class="card-body" >
+              <h5 class="card-title">Official</h5>
+              <p class="card-text"></p>
+              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <div class="card"  style="margin-top: 10%; margin-left:60%;">
+            <div class="card-body">
+              <h5 class="card-title">Department</h5>
+              <p class="card-text"></p>
+              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="card"  style="margin-top: 10%; margin-left:60%;">
+              <div class="card-body">
+                <h5 class="card-title">Given By</h5>
+                <p class="card-text"></p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-5">
+            <div class="card"  style="margin-top: 10%; margin-left:60%;">
+              <div class="card-body">
+                <h5 class="card-title">Complaints</h5>
+                <p class="card-text"></p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
+            </div>
+          </div>
+      </div>
+    </div> -->
+</body>
+</html>
+{% if messages %}
+{% for message in messages %}
+ {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+{% endfor %}
+
+{% endif %}
+{% endblock content %}

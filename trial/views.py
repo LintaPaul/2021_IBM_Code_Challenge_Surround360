@@ -6,6 +6,8 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .models import Public
 from .forms import Usertype,Newuser,Loggeduser,Complaints
+from .models import Public, Official
+from .forms import Usertype,Newuser,Loggeduser, LoggedOfficial
 from django.contrib import messages
 
 def index(request):  
@@ -39,6 +41,10 @@ def gotohome(request):
 def gotocwater(request):
   luser=request.session.get('user')
   return render(request, 'complaints_water.html',{'user':luser})
+
+def officialLanding(request):
+  return render(request, 'landing_official.html')
+
 def register(request):
   if request.method=="POST":
     form=Newuser(request.POST)
@@ -70,6 +76,7 @@ def login_public(request):
     else:
         mydetails=Loggeduser()
   return HttpResponseRedirect('/trial/public/')
+<<<<<<< HEAD
 
 def file_water(request):
     if request.method=="POST":
@@ -82,6 +89,34 @@ def file_water(request):
     return HttpResponseRedirect('/trial/water/')
 
 
+=======
+  
+def blog(request):
+  return render(request, 'blog.html')
+>>>>>>> d454f751a439f0a6a8a6079ae528f21afb7e3a71
 
+def login_official(request):
+  name = 'nil'
+  eid = 'nil'
+  if request.method == 'POST':
+    details = LoggedOfficial(request.POST)
+    if details.is_valid():
+      name = details.cleaned_data['name']
+      eid = details.cleaned_data['eid']
+      print(name, eid)
+      try:
+        official_object = Official.objects.filter(empid = eid, name = name)
+      except Official.DoesNotExist:
+        official_object = None
+      if official_object is not None:
+        messages.success(request, 'Login Successfull!')
+        return HttpResponseRedirect('/trial/officialhome/')
+      else:
+        messages.warning(request, 'Invalid Login')
+        return HttpResponseRedirect('/trial/official/')
+    else:
+      details = LoggedOfficial()
+  return HttpResponseRedirect('/trial/official/')
+    
 
 

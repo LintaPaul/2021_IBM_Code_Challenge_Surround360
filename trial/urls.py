@@ -9,8 +9,15 @@ urlpatterns = [
     path('official/',views.official,name="official"),
     path('form/',views.register,name="form"),
     path('login/',views.login_public,name="login"),
+    path('login_official/',views.login_official,name="login"),
     path('home/',views.gotohome,name="home"),
+<<<<<<< HEAD
     path('water/',views.gotocwater,name="water"),
     path('c_water/',views.file_water,name="c_water")
+=======
+    path('blog/', views.blog, name = "blog"),
+    path('officialhome/', views.officialLanding, name = "officialhome"),
+
+>>>>>>> d454f751a439f0a6a8a6079ae528f21afb7e3a71
 ]
 
