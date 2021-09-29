@@ -10,11 +10,7 @@ urlpatterns = [
     path('form/',views.register,name="form"),
     path('login/',views.login_public,name="login"),
     path('home/',views.gotohome,name="home"),
-<<<<<<< HEAD
     path('water/',views.gotocwater,name="water"),
     path('c_water/',views.file_water,name="c_water")
-=======
-    path('blog/', views.blog, name = "blog")
->>>>>>> 553312b60342296fcab40a7cd006271b93e01492
 ]
 
