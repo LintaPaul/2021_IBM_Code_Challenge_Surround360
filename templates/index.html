@@ -7,12 +7,16 @@ App landing
 {% block content %}
 {% load static %}
 <h1 class="heading">Surround 360</h1>
-<link rel="stylesheet" href="{% static 'css/base.css'%}">
+<h2 class="sub-heading">Rest Your Head, We are Here!</h2>
+<!-- <h3 class="brief">An application for your concerns and queries!</h3> -->
+<link rel="stylesheet"  type="text/css" href="{% static 'css/base.css'%}">
+<h3 class="type-choose">Choose your usertype(Official or Public)</h3>
 <form name="form" action="/trial/usertype/" method="POST" >{% csrf_token %}
-   <select class="sel" name="usertype">
+   <select class="sel" name="usertype" >
+    
        <option value="Public">Public</option>
        <option value="Official">Official</option>
    </select>
-    <input type="submit" value="Move to Login" >
+    <input class="sel" type="submit" value="Move to Login" >
 </form>
 {% endblock content %}
