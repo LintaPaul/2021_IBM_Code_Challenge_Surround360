@@ -5,8 +5,11 @@ App landing
 {% endblock title %}
 
 {% block content %}
+{% load static %}
+<h1 class="heading">Surround 360</h1>
+<link rel="stylesheet" href="{% static 'css/base.css'%}">
 <form name="form" action="/trial/usertype/" method="POST" >{% csrf_token %}
-   <select name="usertype">
+   <select class="sel" name="usertype">
        <option value="Public">Public</option>
        <option value="Official">Official</option>
    </select>
