@@ -17,6 +17,6 @@ urlpatterns = [
     path('complaints/',views.file_water,name="complaints"),
     path('blog/', views.blog, name = "blog"),
     path('officialhome/', views.officialLanding, name = "officialhome"),
-
+    path('viewcomplaints/', views.complaints, name = 'complaints'),
 ]
 
