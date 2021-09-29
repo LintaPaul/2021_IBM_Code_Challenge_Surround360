@@ -12,6 +12,12 @@ Dashboard_user
 {% endfor %}
 
 {% endif %}
+ {% for users in user %}
+   <div class="container" style="color:white;">
+    Logged in user: {{ users.name }}
+    Your region: {{ users.region }}
+   </div>  
+ {% endfor %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -62,8 +68,8 @@ Dashboard_user
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-8">
                                 <h2 class="d-flex align-items-center mb-0">
-                                    <a href="http://www.google.com/">
-                                        <button class="button_slide slide_down"><h5 class="btntxt mb-0">Raise an issue</h5></button>
+                                    <a href="/trial/water/">
+                                        <button class="button_slide slide_down" href="/trial/water/"><h5 class="btntxt mb-0">Raise an issue</h5></button>
                                      </a>
                                 </h2>
                             </div>

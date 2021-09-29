@@ -20,6 +20,5 @@ class Loggeduser(forms.Form):
 class Complaints(forms.ModelForm):
     class Meta:
         model=Complaints
-        fields=["region","dept","category","complaint","status"]
-        labels={'region':"Region",'dept':"Department",'category':"Sub Category",'complaint':"Complaint",'status':"status"}
-        
+        fields=["region","dept","category","complaint","sender","status"]
+        labels={'region':"Region",'dept':"Department",'category':"Sub Category",'complaint':"Complaint",'sender':"Sender",'status':"status"}

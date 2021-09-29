@@ -10,5 +10,7 @@ urlpatterns = [
     path('form/',views.register,name="form"),
     path('login/',views.login_public,name="login"),
     path('home/',views.gotohome,name="home"),
+    path('water/',views.gotocwater,name="water"),
+    path('c_water/',views.file_water,name="c_water")
 ]
 

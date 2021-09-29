@@ -5,7 +5,7 @@ from django.template import loader
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .models import Public
-from .forms import Usertype,Newuser,Loggeduser
+from .forms import Usertype,Newuser,Loggeduser,Complaints
 from django.contrib import messages
 
 def index(request):  
@@ -36,7 +36,9 @@ def gotoregister(request):
 
 def gotohome(request):
   return render(request, 'dashboard_public.html')
-
+def gotocwater(request):
+  luser=request.session.get('user')
+  return render(request, 'complaints_water.html',{'user':luser})
 def register(request):
   if request.method=="POST":
     form=Newuser(request.POST)
@@ -60,6 +62,7 @@ def login_public(request):
         user_object = None
       if user_object:
         messages.success(request,'Login successfull!!!')
+        request.session['user']=name
         return render(request,'dashboard_public.html',{'user': user_object})
       else:
         messages.success(request,'Invalid Login')
@@ -67,7 +70,17 @@ def login_public(request):
     else:
         mydetails=Loggeduser()
   return HttpResponseRedirect('/trial/public/')
-    
+
+def file_water(request):
+    if request.method=="POST":
+      form=Complaints(request.POST)
+      if form.is_valid():
+        form.save()
+      else:
+        form=Complaints()
+      messages.success(request,"Complaint filed")
+    return HttpResponseRedirect('/trial/water/')
+
 
 
 
