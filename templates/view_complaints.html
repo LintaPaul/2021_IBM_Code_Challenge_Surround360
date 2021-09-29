@@ -6,12 +6,12 @@
 
 {% block content %}
 {% load static %}
-<h1>Complaints</h1>
+<h1 class="complaints-head" style="font-size: 50px; margin:4%; font-family: 'Times New Roman', Times, serif;color:rgb(17, 16, 19);">Complaints</h1>
 <h2> {{official}}</h2>
 <link rel="stylesheet" href="{% static 'css/base.css'%}">
 {% for complaint in complaints%}
 		<article class="media content-section">
-			<div class="media-body">
+			<!-- <div class="media-body">
 				<div class="article-metadata">
 					<a class="mr-2" href="#">{{ complaint.sender }}</a>
 					<small class="text-muted">{{ complaint.status}}</small>
@@ -20,7 +20,31 @@
 				<p class="article-content">{{ complaint.complaint}}</p>
 				<p class="article-content">{{ complaint.id}}</p>
 				<button href = "#">Have you solved the issue</button>
-			</div>	
+			</div>	 -->
+
+			<div class="col-sm-5">
+				<div class="card" >
+					<h4 class="mr-2" style="margin: 3%; font-family: 'Times New Roman', Times, serif;">The complaint was filed by <b>{{ complaint.sender }}</b></h4>
+					<small class="text-muted" style="margin-left: 3%; font-family: 'Times New Roman', Times, serif;"> Status of now {{ complaint.status}}
+						{% if complaint.status %}						
+							<div class="US"> 
+								<button type="submit"><b>Unsolved</b></button>
+							</div>
+					{% endif %}
+					
+					</small>
+				  <div class="card-body" >
+					<h5 class="card-title" style="margin: 3%; font-family: 'Times New Roman', Times, serif;"><h4 style="margin: 3%; font-family: 'Times New Roman', Times, serif;">Complaint Description:</h4> <h6 style="margin: 2%; font-family: 'Times New Roman', Times, serif; color: crimson;"> {{ complaint.complaint}}</h6> </h5>
+					<!-- <p class="card-text">{{ complaint.id}}</p> -->
+					<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+				  </div>
+				</div>
+				<br>
+			  </div>
+			  <br>
+
+
+
 		</article>
 {% endfor %}
 {% endblock content %}

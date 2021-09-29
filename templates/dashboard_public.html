@@ -5,13 +5,13 @@ Dashboard_user
 {% endblock title %}
 
 {% block content %}
-{% if messages %}
+<!-- {% if messages %}
 {% for message in messages %}
  {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
 
 {% endfor %}
 
-{% endif %}
+{% endif %} -->
  {% for users in user %}
    <div class="container" style="color:white;">
     Logged in user: {{ users.name }}
@@ -31,8 +31,8 @@ Dashboard_user
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 <body style="background-color: black !important;">
-    <a class="d-flex float-right" href="/trial/index/">
-        <button class="button_slide slide_down" href="/trial/index/"><h5 class="btntxt mb-0">Logout</h5></button>
+    <a class="d-flex float-right" href="/trial/logout/">
+        <button class="button_slide slide_down" href="/trial/logout/"><h5 class="btntxt mb-0">Logout</h5></button>
      </a>
     <div class="container" >
         

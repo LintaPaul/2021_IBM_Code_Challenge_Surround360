@@ -6,17 +6,105 @@ App landing
 
 {% block content %}
 {% load static %}
-<h1 class="heading">Surround 360</h1>
-<h2 class="sub-heading">Rest Your Head, We are Here!</h2>
+<!--<h1 class="heading">Surround 360</h1>
+<h2 class="sub-heading">Rest Your Head, We are Here!</h2>-->
 <!-- <h3 class="brief">An application for your concerns and queries!</h3> -->
 <link rel="stylesheet"  type="text/css" href="{% static 'css/base.css'%}">
-<h3 class="type-choose">Choose your usertype(Official or Public)</h3>
-<form name="form" action="/trial/usertype/" method="POST" >{% csrf_token %}
-   <select class="sel" name="usertype" >
+<link rel="stylesheet" href="{% static 'css/design.css'%}">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<h5 class="type-choose">Choose your usertype(Official or Public)</h5>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active"
+      id="ex1-tab-1"
+      data-mdb-toggle="tab"
+      href="#ex1-tabs-1"
+      role="tab"
+      aria-controls="ex1-tabs-1"
+      aria-selected="true"
+      >Public
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"
+      id="ex1-tab-2"
+      data-mdb-toggle="tab"
+      href="#ex1-tabs-2"
+      role="tab"
+      aria-controls="ex1-tabs-2"
+      aria-selected="false">Official</a>
+    </li>
     
-       <option value="Public">Public</option>
-       <option value="Official">Official</option>
-   </select>
-    <input class="sel" type="submit" value="Move to Login" >
-</form>
+  </ul>
+  <div class="tab-content" id="ex1-content">
+    <div
+      class="tab-pane fade show active"
+      id="ex1-tabs-1"
+      role="tabpanel"
+      aria-labelledby="ex1-tab-1"
+    >
+     <!---Tab 1 content-->
+     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" >
+                    
+                    <form  action="/trial/login/" method="POST" class="box">
+                        {% csrf_token %}
+                        <img class="card-img" src="{% static 'images/finallogo.jpeg' %}" alt="logo"/>
+                        <h1>WELCOME</h1>
+                        <p class="text-muted"> </p> <input type="text" name="name" placeholder="Your name" required> 
+                        <input type="text" name="phoneno" placeholder="Enter your phone number" required> 
+                         <!-- <a class="forgot text-muted" href="#">Forgot password?</a> -->
+                          <input type="submit" value="Login">
+                        <div class="col-md-12">
+                            <a href="/trial/form/">New user? Sign up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card" >
+                        
+                        <form method="POST" action="/trial/login_official/" class="box">
+                            {% csrf_token %}
+                            <img class="card-img" src="{% static 'images/finallogo.jpeg' %}" alt="logo"/>
+                            <h1>WELCOME</h1>
+                            <p class="text-muted"> Please enter your name and employee id</p> 
+                            <input type="text" name="name" placeholder="Your name" required> 
+                            <input type="text" name="eid" placeholder="Employee id" required>
+                            <!-- <a class="forgot text-muted" href="#">Forgot password?</a> -->
+                            <input type="submit" name="" value="Login" >
+                            <div class="col-md-12">
+                                <!-- <ul class="social-network social-circle">
+                                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li>
+                                </ul> -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        $(function(){ 
+            $('.nav-tabs a').on('click', function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });  
+        });
+        </script>
 {% endblock content %}

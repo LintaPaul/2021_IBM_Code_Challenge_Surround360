@@ -131,3 +131,5 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/var/www/static/',
 ]
+
+# LOGOUT_REDIRECT_URL = '/trial/login_official'

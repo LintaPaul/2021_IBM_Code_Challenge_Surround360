@@ -35,6 +35,13 @@ App landing
                         <input type="text" name="phoneno" placeholder="Enter your phone number" required> 
                          <!-- <a class="forgot text-muted" href="#">Forgot password?</a> -->
                           <input type="submit" value="Login">
+                        {% if messages%}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}"> 
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
                         <div class="col-md-12">
                             <a href="/trial/form/">New user? Sign up</a>
                         </div>
@@ -46,13 +53,5 @@ App landing
         
 </body>
 </html>
-{% if messages %}
-{% for message in messages %}
- {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
-
-{% endfor %}
-
-{% endif %}
-
 
 {% endblock content %}
