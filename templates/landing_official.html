@@ -13,14 +13,14 @@ Dashboard_user
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="/css/bootstrap.css"> -->
     <link rel="stylesheet" href="{% static 'css/style1.css'%}">
     <title>Official Landing Page</title>
 </head>
 <body>
     <div class="side-menu">
         <div class="brand-name">
-            <h1>Dashboard</h1>
+            <h1 class="dash">Dashboard</h1>
         </div>
         <ul>
             <li>Notifications</li>
@@ -61,7 +61,8 @@ Dashboard_user
             <div class="card"  style="margin-top: 10%; margin-left:60%;">
               <div class="card-body">
                 <a href="/trial/viewcomplaints/">
-                  <button class="button_slide slide_down" href = "/trial/viewcomplaints/"><h5 class="btntxt mb-0">Complaints</h5></button>
+                  <!-- <button class="button_slide slide_down" href = "/trial/viewcomplaints/"><h5 class="btntxt mb-0">Complaints</h5></button> -->
+                  <a href="/trial/viewcomplaints/" class="btn btn-primary">Complaints</a>
                 </a>
                 
                 <p class="card-text"></p>
