@@ -49,8 +49,8 @@
     justify-content: center;
   }
   .dash{
-    font-weight: 800;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 900;
+    font-family: 'Times New Roman', Times, serif;
   }
   .side-menu li{
     font-size: 20px;
@@ -59,9 +59,14 @@
     display: flex;
     align-items: center;
   }
+  
   .side-menu li:hover{
-    background-color: aliceblue;
-    color:aqua
+    background: aliceblue;
+    color:#9e0633;
+  }
+  .card-title{
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
   }
   
   
