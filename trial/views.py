@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .models import Public
 from .forms import Usertype,Newuser,Loggeduser,Complaints
-from .models import Public, Official
+from .models import Public, Official, Complaints
 from .forms import Usertype,Newuser,Loggeduser, LoggedOfficial
 from django.contrib import messages
 
@@ -38,6 +38,7 @@ def gotoregister(request):
 
 def gotohome(request):
   return render(request, 'dashboard_public.html')
+  
 def gotocwater(request):
   luser=request.session.get('user')
   return render(request, 'complaints_water.html',{'user':luser})
@@ -109,14 +110,14 @@ def login_official(request):
     if details.is_valid():
       name = details.cleaned_data['name']
       eid = details.cleaned_data['eid']
-      print(name, eid)
       try:
         official_object = Official.objects.filter(name = name, empid=eid )
       except Official.DoesNotExist:
         official_object = None
       if official_object:
         messages.success(request, 'Login Successfull!')
-        return HttpResponseRedirect('/trial/officialhome/')
+        request.session['eid'] = eid
+        return render(request,'landing_official.html',{'user': official_object})
       else:
         messages.warning(request, 'Invalid Login')
         return HttpResponseRedirect('/trial/official/')
@@ -124,5 +125,15 @@ def login_official(request):
       details = LoggedOfficial()
   return HttpResponseRedirect('/trial/official/')
     
-
+def complaints(request):
+  off = request.session.get('eid')
+  official_obj = Official.objects.filter(empid = off)
+  for o in official_obj:
+    dept = o.department
+    subdept = o.subdept
+    context = {
+      'complaints': Complaints.objects.filter(dept = dept, category = subdept)
+    }
+    
+  return render(request, 'view_complaints.html', context)
 
