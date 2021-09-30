@@ -5,7 +5,7 @@ from django.template import loader
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .models import Public
-from .forms import Usertype,Newuser,Loggeduser,Complaints
+from .forms import Usertype,Newuser,Loggeduser,Complaintform
 from .models import Public, Official, Complaints
 from .forms import Usertype,Newuser,Loggeduser, LoggedOfficial
 from django.contrib import messages
@@ -22,13 +22,14 @@ def official(request):
 
 def logOut(request):
   logout(request)
-  return HttpResponseRedirect('/trial/index')
+  return HttpResponseRedirect('/trial/index/')
+
 
 def gotoregister(request):
   return render(request, 'register_public.html')
 
 def gotohome(request):
-  return render(request, 'dashboard_public.html')
+  return HttpResponseRedirect('/trial/login/')
   
 def gotocwater(request):
   luser=request.session.get('user')
@@ -80,15 +81,39 @@ def login_public(request):
 
 def file_water(request):
     if request.method=="POST":
-      form=Complaints(request.POST)
+      form=Complaintform(request.POST,initial={'status':"US"})
+      print(form)
       if form.is_valid():
         form.save()
+        messages.success(request,"Complaint filed")
       else:
-        form=Complaints()
-      messages.success(request,"Complaint filed")
+        form=Complaintform()
+      
     return HttpResponseRedirect('/trial/water/')
 
+def file_elec(request):
+    if request.method=="POST":
+      form=Complaintform(request.POST,initial={'status':"US"})
+      print(form)
+      if form.is_valid():
+        form.save()
+        messages.success(request,"Complaint filed")
+      else:
+        form=Complaintform()
+      
+    return HttpResponseRedirect('/trial/elec/')
 
+def file_road(request):
+    if request.method=="POST":
+      form=Complaintform(request.POST,initial={'status':"US"})
+      print(form)
+      if form.is_valid():
+        form.save()
+        messages.success(request,"Complaint filed")
+      else:
+        form=Complaintform()
+      
+    return HttpResponseRedirect('/trial/road/')
   
 def blog(request):
   return render(request, 'blog.html')

@@ -21,8 +21,15 @@ class LoggedOfficial(forms.Form):
     name = forms.CharField(label = 'name')
     eid = forms.CharField(label = 'eid')
     
-class Complaints(forms.ModelForm):
+class Complaintform(forms.ModelForm):
+    #status=forms.CharField(widget=forms.HiddenInput(),initial="US")
     class Meta:
         model=Complaints
         fields=["region","dept","category","complaint","landmark","sender","status"]
-        labels={'region':"Region",'dept':"Department",'category':"Sub Category",'complaint':"Complaint",'landmark':"Landmark", 'sender':"Sender",'status':"status"}
+        labels={'region':"Region",'dept':"Department",'category':"Sub Category",'complaint':"Complaint",'landmark':"Landmark", 'sender':"Sender",'status':"Status"}
+    
+    def clean_status(self):
+        status = self.cleaned_data['status']
+        if status is None:
+            return self.fields['status'].initial
+        return status
