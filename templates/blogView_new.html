@@ -36,7 +36,9 @@
     <body>
         <div class="container">
             <div class="row">
+            {% if blogs%}
                 {% for blog in blogs %}
+
                         <div class="col-md-6 offset-md-3">
                             <div class="card">
                                 <div class="card-title">
@@ -52,6 +54,18 @@
                             <br><br>
                         </div>
                 {% endfor %}
+            {% else %}
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>No posts made yet</p>
+                            <a href="/trial/blog/">
+                                <button class="button_slide slide_down" href="/trial/blog/"><h5 class="btntxt mb-0">Create a new post</h5></button>
+                            </a>
+                        </div>
+                    </div>
+                </div>        
+            {% endif %}
             </div>
         </div>
     </body>
