@@ -222,7 +222,7 @@ def addpost(request):
         if form.is_valid():
            form.save()
            messages.success(request,"Blog posted!!! Thank you")
-           return HttpResponseRedirect('/trial/blog/')
+           return HttpResponseRedirect('/trial/success/')
         else:
           form=BlogPost()
   return HttpResponseRedirect('/trial/blog/')
@@ -231,7 +231,7 @@ def search(request):
   value = request.POST.get('location')
   # location_obj = tourist.objects.filter(location = value)
   context = {
-    'blogs' : Tourist.objects.filter(location = value)
+    'blogs' : Tourist.objects.filter(location = value),
   }
   return render(request, 'blogView.html', context)
   
