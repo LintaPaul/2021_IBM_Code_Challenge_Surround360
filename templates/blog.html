@@ -5,26 +5,86 @@ App landing
 {% endblock title %}
 
 {% block content %}
-<!-- You are public user -->
+
+                           
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/design.css'%}">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<!--<h1 class="heading">Surround 360</h1>
+<h2 class="sub-heading">Rest Your Head, We are Here!</h2>-->
+<!-- <h3 class="brief">An application for your concerns and queries!</h3> -->
+<link rel="stylesheet"  type="text/css" href="{% static 'css/base.css'%}">
+<link rel="stylesheet" href="{% static 'css/design.css'%}">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <title>Document</title>
-    <!-- <style>
-        
+<!-- <h4 class="type-choose" style="margin-left: 28%;">Say bye bye to the repeated paperworks, we have you covered, 360</h4> -->
 
-    </style> -->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active"
+      id="ex1-tab-1"
+      data-mdb-toggle="tab"
+      href="#ex1-tabs-1"
+      role="tab"
+      aria-controls="ex1-tabs-1"
+      aria-selected="true"
+      >Add Post
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"
+      id="ex1-tab-2"
+      data-mdb-toggle="tab"
+      href="#ex1-tabs-2"
+      role="tab"
+      aria-controls="ex1-tabs-2"
+      aria-selected="false">Search</a>
+    </li>
     
-</head>
-<body>
+  </ul>
+  <div class="tab-content" id="ex1-content">
+    <div
+      class="tab-pane fade show active"
+      id="ex1-tabs-1"
+      role="tabpanel"
+      aria-labelledby="ex1-tab-1"
+    >
+     <!---Tab 1 content-->
+     <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" >
+                    
+                    <form  action="/trial/login/" method="POST" class="box">
+                        {% csrf_token %}
+                        <img class="card-img" src="{% static 'images/finallogo.jpeg' %}" alt="logo"/>
+                        <h1 style="font-family: 'Times New Roman', Times, serif;">Welcome</h1>
+                        <p class="text-muted"> </p> <input style="font-family: 'Times New Roman', Times, serif;" type="text" name="name" placeholder="Your name" required> 
+                        <input type="text" style="font-family: 'Times New Roman', Times, serif;" name="phoneno" placeholder="Enter your phone number" required>  -->
+                         <!-- <a class="forgot text-muted" href="#">Forgot password?</a> -->
+                          <!-- <input type="submit" style="font-family: 'Times New Roman', Times, serif; font-size: large;" value="Login">
+                          {% if messages%}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}"> 
+                                    {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        <div class="col-md-4" style="background-color: #C3073F; margin-left: 35%; font-weight: 700; font-size: large; font-family: 'Times New Roman', Times, serif;">
+                            <a href="/trial/form/" style="color: #0e0c0d;" >New user? Sign Up</a>
+
+                           
+                            
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div> -->
+      
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -58,6 +118,87 @@ App landing
         {% endfor %}
     {% endif %}
     </div>
-</body>
-</html>
+
+
+    </div>
+    <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+        
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card" >
+                        
+                        <form method="POST" action="/trial/officialhome/" class="box">
+                            {% csrf_token %}
+                            <img class="card-img" src="{% static 'images/finallogo.jpeg' %}" alt="logo"/>
+                            <h1>WELCOME</h1>
+                            <p class="text-muted"> Please enter your name and employee id</p> 
+                            <input type="text" name="name" placeholder="Your name" required> 
+                            <input type="text" name="eid" placeholder="Employee id" required> -->
+                            <!-- <a class="forgot text-muted" href="#">Forgot password?</a> -->
+                            <!-- <input type="submit" name="" value="Login" >
+                            {% if messages%}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}"> 
+                                    {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                            <div class="col-md-12"> -->
+                                <!-- <ul class="social-network social-circle">
+                                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li>
+                                </ul> -->
+                            <!-- </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card" >
+                        
+                        <form  action="{% url 'neighbourhoodSearch' %}" method="POST" class="box">
+                            {% csrf_token %}
+                            <img class="card-img" src="{% static 'images/finallogo.jpeg' %}" alt="logo"/>
+                            <h1>SEARCH A LOCATION</h1>
+                            <p class="text-muted"> </p> <input type="text" name="location" placeholder="Location" minlength="3" required>
+                             <!-- <a class="forgot text-muted" href="#">Forgot password?</a> -->
+                              <input type="submit" value="Submit">
+                              <a href="#" style="color:white">Or is it location your current location?</p>
+    
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+      </div> 
+    </div>
+    
+    <script>
+        $(function(){ 
+            $('.nav-tabs a').on('click', function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });  
+        });
+        </script>
+        {% if messages%}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show"> 
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+    {% endfor %}
+    {% endif %}
 {% endblock content %}
