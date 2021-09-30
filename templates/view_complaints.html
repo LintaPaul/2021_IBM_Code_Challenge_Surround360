@@ -6,9 +6,9 @@
 
 {% block content %}
 {% load static %}
-<h1 class="complaints-head" style="font-size: 50px; margin:4%; font-family: 'Times New Roman', Times, serif;color:rgb(17, 16, 19);">Complaints</h1>
+<h1 class="complaints-head" style="font-size: 50px; margin:4%; font-family: 'Times New Roman', Times, serif;color:rgb(229, 225, 238);">Complaints</h1>
 <h2> {{official}}</h2>
-<link rel="stylesheet" href="{% static 'css/base.css'%}">
+<link rel="stylesheet" href="{% static 'css/view_complaints.css'%}">
 {% for complaint in complaints%}
 		<article class="media content-section">
 			<!-- <div class="media-body">
@@ -23,12 +23,12 @@
 			</div>	 -->
 
 			<div class="col-sm-5">
-				<div class="card" >
+				<div class="card l-bg-cherry" >
 					<h4 class="mr-2" style="margin: 3%; font-family: 'Times New Roman', Times, serif;">The complaint was filed by <b>{{ complaint.sender }}</b></h4>
 					<small class="text-muted" style="margin-left: 3%; font-family: 'Times New Roman', Times, serif;"> Status of now {{ complaint.status}}
 						{% if complaint.status %}						
 							<div class="US"> 
-								<button type="submit"><b>Unsolved</b></button>
+								<button style="color: aliceblue;" type="submit"><b>Unsolved</b></button>
 							</div>
 					{% endif %}
 					
