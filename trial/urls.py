@@ -14,7 +14,6 @@ urlpatterns = [
     path('form/',views.gotoregister,name="form"),
     path('register/',views.register,name="register"),
     path('login/',views.login_public,name="login"),
-  
     path('officialhome/',views.login_official,name="officialhome"),
     path('logout/', views.logOut, name = 'logout'),
     path('home/',views.gotohome,name="home"),
@@ -31,7 +30,8 @@ urlpatterns = [
     path('changestatus/<int:id>', views.changestatus, name = 'changestatus'),
     path('official/Profile/', views.officialProfile, name = 'officialProfile'),
     path('postadd/',views.addpost,name="postadd"),
-
+    path('search/', views.gotosearch, name = "search"),
+    path('neighbourhood/search/', views.search, name = "neighbourhoodSearch"),
 
 ]
 if settings.DEBUG:
