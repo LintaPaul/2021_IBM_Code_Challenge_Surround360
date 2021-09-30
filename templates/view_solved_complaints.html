@@ -7,6 +7,13 @@
 {% block content %}
 	{% load static %}
 	<h1 class="complaints-head" style="font-size: 50px; margin:4%; font-family: 'Times New Roman', Times, serif;color:rgb(229, 225, 238);">Complaints</h1>
+	<style>
+		.card
+		{
+			background-color: black;
+			color: white;
+		}
+	</style>
 	<h2> {{official}}</h2>
 	<link rel="stylesheet" href="{% static 'css/view_complaints.css'%}">
 	{% for complaint in complaints%}
@@ -14,10 +21,10 @@
 			<article class="media content-section">
 				<div class="col-sm-5">
 					<div class="card l-bg-cherry" >
-						<h4 class="mr-2" style="margin: 3%; font-family: 'Times New Roman', Times, serif;">The complaint was filed by <b>{{ complaint.sender }}</b></h4>
-						<small class="text-muted" style="margin-left: 3%; font-family: 'Times New Roman', Times, serif;"> Status of now <b>Solved</b></small>
+						<h4 class="mr-2" style="margin: 3%; font-family: 'Times New Roman', Times, serif;">The complaint was filed by: <b>{{ complaint.sender }}</b></h4>
+						<small style="margin-left: 3%; font-family: 'Times New Roman', Times, serif;"> Status of now: <b>Solved</b></small>
 					<div class="card-body" >
-						<h5 class="card-title" style="margin: 3%; font-family: 'Times New Roman', Times, serif;"><h6 style="margin: 3%; font-family: 'Times New Roman', Times, serif;">Complaint Description:</h6> <h4 style="margin: 2%; font-family: 'Times New Roman', Times, serif; color: crimson;"> {{ complaint.complaint}}</h4> </h5>
+						<h5 class="card-title" style="margin: 3%; font-family: 'Times New Roman', Times, serif;"><h5 style="margin: 3%; font-family: 'Times New Roman', Times, serif;">Complaint Description:</h5> <h6 style="margin: 2%; font-family: 'Times New Roman', Times, serif; color: white;"> {{ complaint.complaint}}</h6> </h5>
 						<!-- <p class="card-text">{{ complaint.id}}</p> -->
 						<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
 					</div>

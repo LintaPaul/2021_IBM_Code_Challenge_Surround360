@@ -14,18 +14,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="/css/bootstrap.css"> -->
-    <link rel="stylesheet" href="{% static 'css/style1.css'%}">
+   <!--- <link rel="stylesheet" href="{% static 'css/style1.css'%}">-->
     <title>View Complaints</title>
 </head>
 <body>
 	
 	<style>
-		/* .body{
-			background: linear-gradient(to right, #C3073F, #1A1A1D)
+		body{
+			background: linear-gradient(to right, #C3073F, #1A1A1D);
 		}
-		*{
-			background: linear-gradient(to right, #C3073F, #1A1A1D)
-		} */
+		.card
+		{
+			background-color: #000000!important;
+			color:white;
+			padding:2%;
+		}
+		
+		.btn
+		{
+			background: linear-gradient(to right, #C3073F, #1A1A1D);
+		}
+		
 	</style>
 	
 	<h1 class="complaints-head" style="font-size: 50px; margin:4%; font-family: 'Times New Roman', Times, serif;color:rgb(229, 225, 238);">Complaints</h1>
@@ -35,24 +44,26 @@
 		{% if complaint.status == 'US' %}
 			<article class="media content-section" style="margin-left: 30%;">
 				<div class="col-sm-5" >
-					<div class="card l-bg-cherry" style=" border: 2px solid #000000; border-radius: 19px;">
-						<h4 class="mr-2" style=" border: 2px solid #000000;
-						border-radius: 10px; font-family: 'Times New Roman', Times, serif;">The complaint was filed by <b>{{ complaint.sender }}</b></h4>
-						<small class="text-muted" style="margin-left: 3%; font-family: 'Times New Roman', Times, serif; font-size: 20px; color: white;"> Status of now <b>Unsolved</b>
+					<div class="card" style=" border: 2px solid #000000; border-radius: 19px; background-color: #000000;">
+						<h5 class="mr-2" style=" border: 2px solid #000000;
+						border-radius: 10px; font-family: 'Times New Roman', Times, serif;color:white;">The complaint was filed by : <b>{{ complaint.sender }}</b></h5>
+						<div class="card-body" >
+							<h5 class="card-title" style="margin: 3%; font-family: 'Times New Roman', Times, serif;"><h6 style="margin: 3%; font-family: 'Times New Roman', Times, serif;">Complaint Description:</h6> <h4 style="margin: 2%; font-family: 'Times New Roman', Times, serif; color: white;"> {{ complaint.complaint}}</h4> </h5>
+							<!-- <p class="card-text">{{ complaint.id}}</p> -->
+							<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+						     <p style="font-family: 'Times New Roman', Times, serif;"> This issue occured at: {{ complaint.landmark }}</p>
+						</div>
+						<small class="text-muted" style="margin-left: 3%; font-family: 'Times New Roman', Times, serif; font-size: 20px; color: white;"> Status as of now: <b>Unsolved</b>
 							{% if complaint.status %}						
 								<div class="US" >
 									<a href="{% url 'changestatus' id=complaint.id %}">
-										<button  style="width: 45%; margin-left: 14%; border: 1px solid;  background-color: black; color: aliceblue;" class="button_slide2 slide_down" href="/trial/logout/"><h5 href = "{% url 'changestatus' id=complaint.id %}"><b>Change Status</b></button>
+										<button  class="btn " style="margin-left: 5%; margin-bottom: 2%; border: 1px solid;color:white;" class="button_slide2 slide_down" href="/trial/logout/"><h6 href = "{% url 'changestatus' id=complaint.id %}"><b>Change Status to solved</b></h6></button>
 									</a>
 								</div>
 						{% endif %}
 						
 						</small>
-					<div class="card-body" >
-						<h5 class="card-title" style="margin: 3%; font-family: 'Times New Roman', Times, serif;"><h6 style="margin: 3%; font-family: 'Times New Roman', Times, serif;">Complaint Description:</h6> <h4 style="margin: 2%; font-family: 'Times New Roman', Times, serif; color: rgb(5, 5, 5);"> {{ complaint.complaint}}</h4> </h5>
-						<!-- <p class="card-text">{{ complaint.id}}</p> -->
-						<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-					</div>
+					
 					</div>
 					<br>
 				</div>

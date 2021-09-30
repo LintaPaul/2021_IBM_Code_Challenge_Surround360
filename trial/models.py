@@ -4,7 +4,7 @@ from django.utils import timezone
 # Create your models here.
 class Official(models.Model):
     DEPTS=(('W',"Water"),('E',"Electricity"),('R',"Roads"))
-    SUBDEPS = (('WL', "Water Leaks"), ("SL", "Shortage of supply"),('PF', "Power failure"), ('LB', "Line damage"), ('RD', "Road damage"),('TR', "Tarring required"))
+    SUBDEPS = (('WL', "Water Leaks"), ("SS", "Shortage of supply"),('PF', "Power failure"), ('LD', "Line damage"), ('RD', "Road damage"),('TR', "Tarring required"))
     region=models.CharField(max_length=50)
     name=models.CharField(max_length=50)
     department=models.CharField(max_length=1,choices=DEPTS)

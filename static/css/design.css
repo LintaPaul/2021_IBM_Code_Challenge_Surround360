@@ -169,7 +169,13 @@ a.socialIcon:hover,
   }
   
   .nav-tabs{
-      margin-left: 10px;
+      margin-left: 50px;
+      margin-right:50px;
+      text-align: center;
+     
+  }
+  .nav-tabs > li{
+      width:50%;
   }
   .nav-tabs > li > a{
     border: medium none;
