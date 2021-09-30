@@ -17,7 +17,9 @@ urlpatterns = [
     path('water/',views.gotocwater,name="water"),
     path('elec/',views.gotocelec,name="elec"),
     path('road/',views.gotocroads,name="roads"),
-    path('complaints/',views.file_water,name="complaints"),
+    path('cwater/',views.file_water,name="cwater"),
+    path('celec/',views.file_elec,name="celec"),
+    path('croad/',views.file_road,name="croad"),
     path('blog/', views.blog, name = "blog"),
     path('viewcomplaints/', views.complaints, name = 'complaints'),
 ]

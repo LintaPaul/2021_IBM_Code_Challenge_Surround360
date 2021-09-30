@@ -65,7 +65,7 @@ Complaints_road
                 <div class="card" >
                     
                     <div class="container">
-                        <form action="/trial/c_water/" method="POST" class="box">
+                        <form action="/trial/c_road/" method="POST" class="box">
                             {% csrf_token %}
                             <div class="form-group">
                                 <!-- <label class="label">Region</label> -->
@@ -99,13 +99,13 @@ Complaints_road
                                         <option value="{{ user }}">{{ user }}</option>
                                     </select>
                                    </div>
-                                   <div class="form-group">
+                                   <!--<div class="form-group">
                                     <label class="label">Status of Complaint </label>
                                     
                                     <select name="status">
                                         <option value="US">Unsolved</option>
                                     </select>
-                                </div>
+                                </div>-->
                             <div class="form-group">
                                 <input class="btn" type="submit" value="File the Complaint">
                                 <input class="btn" type="reset"  value="Cancel"> 

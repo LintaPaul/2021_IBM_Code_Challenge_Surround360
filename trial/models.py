@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Official(models.Model):
     DEPTS=(('W',"Water"),('E',"Electricity"),('R',"Roads"))
@@ -25,9 +26,11 @@ class Complaints(models.Model):
     dept=models.CharField(max_length=1,choices=DEPTS)
     category=models.CharField(max_length=30)
     complaint=models.CharField(max_length=1000)
-    status=models.CharField(max_length=2,choices=STATUS)
+    
     landmark=models.CharField(max_length=100, default="na")
+    #lat=models.DecimalField(decimal_places=6,max_digits=18,default="10.2345")
     sender=models.CharField(max_length=30,default="Nill")
+    status=models.CharField(max_length=2,choices=STATUS,default="US")
     
 class tourist(models.Model):
     location = models.CharField(max_length = 180)
