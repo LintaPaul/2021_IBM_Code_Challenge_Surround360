@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+App landing
+{% endblock title %}
+
+{% block content %}
+<!-- You are public user -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/design.css'%}">
+    <title>Document</title>
+    <!-- <style>
+        
+
+    </style> -->
+    
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-success" >
+                    <h1>Successfully submitted</h1>
+                    <p>*Please close this window.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock content %}
