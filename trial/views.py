@@ -54,7 +54,7 @@ def register(request):
       form.save()
     else:
       form=Newuser()
-  return render(request,'register_public.html')
+  return render(request,'login_Public.html')
 
 def login_public(request):
   phno=0
@@ -188,6 +188,18 @@ def officialProfile(request):
   
   if subd == 'WL':
     subdept = 'Water Leaks'
+  elif subd == 'SL':
+    subdept = "Shortage of Supply"
+  elif subd == 'PF':
+    subdept = "Power failure"
+  elif subd == 'LB':
+    subdept = "Line damage"
+  elif subd == 'RD':
+    subdept = "Road damage"
+  elif subd == 'TR':
+    subdept = "Tarring required"
+  else:
+    subdept = 'Unspecified'
   return render(request, 'officialprofile.html', {'name':name, 'dept':dept, 'subdept':subdept, 'score':score})
 
 def changestatus(request, id):
