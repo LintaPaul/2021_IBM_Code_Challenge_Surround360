@@ -1,52 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}
+{% block title %} 
 Complaints_road
 {% endblock title %}
 
 {% block content %}
 
-<!-- <form action="/trial/complaints/" method="POST">
-    {% csrf_token %}
-    <div class="form-group">
-        Region:<input type="text" name="region">
-        </div>
-        <div class="form-group">
-            <select name="dept">
-                <option value="R">Roads</option>
-            </select>
-     </div>   
-     <div class="form-group">Category:
-         <select name="category">
-            <option value="RD">Road damage</option>
-            <option value="TR">Tarring required</option>
-        </select>
-        </div>
-        <div class="form-group">
-        Give your complaint description:
-        <textarea name="complaint"></textarea>
-    </div>
-    <div class="form-group">
-        Specify your Address/Landmark to identify the place
-        <textarea name="landmark"></textarea>
-    </div>
-           <div class="form-group">
-               Complaint filed by 
-               <select name="sender">
-                <option value="{{ user }}">{{ user }}</option>
-            </select>
-           </div>
-           <div class="form-group">
-            Status of Complaint
-            <select name="status">
-                <option value="US">Unsolved</option>
-            </select>
-        </div>
-    <div class="form-group">
-        <input type="submit" value="File the Complaint">
-        <input type="reset"  value="Cancel"> 
-    </div>
-</form> -->
+ 
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -55,33 +15,75 @@ Complaints_road
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/complaints.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>Document</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+<script src="https://maps.google.com/maps/api/js?sensor=false"> </script> 
+        
+<script>
+    var x = document.getElementById("lat");
+    function getLocation() {
+        console.log("reached");
+       
+      if (navigator.geolocation) {
+        console.log(navigator.geolocation);
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        console.log(navigator.geolocation);
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
     
+    function showPosition(position) {
+        console.log("reached show position");
+        var latlon = position.coords.latitude + "," + position.coords.longitude;
+        console.log(latlon);
+         var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyClOgnnxpi-QQAg_IteTelQozYK-7Lt9pg";
+
+          document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+      
+    }
+    </script>
+
+    
+   
 </head>
 <body>
+   
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="card" >
+                <div class="card">
                     
                     <div class="container">
-                        <form action="/trial/c_road/" method="POST" class="box">
+                        <form action="/trial/cwater/" method="POST" class="box">
                             {% csrf_token %}
                             <div class="form-group">
-                                <!-- <label class="label">Region</label> -->
-                                <input type="text" name="region" placeholder="Enter your Region">
+                               
+                                <input type="text" name="region" id="reg" placeholder="Enter your Region">
                                 </div>
                                 <div class="form-group">
                                     <label class="label">Department</label>
-                                    <select name="dept">
-                                        <option value="R">Roads</option>
-                                    </select>
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                        <input type="radio" class="btn-check" name="dept" id="dept1" autocomplete="off" value="R" checked>
+                                        <label class="btn btn-outline-primary" for="dept1">Road</label>
+                                        </div>
                              </div>   
                              <div class="form-group"><label class="label">Category</label>
-                                <select name="category">
-                                    <option value="RD">Road damage</option>
-                                    <option value="TR">Tarring required</option>
-                                </select>
+                                <!--- <select name="category">
+                                    <option value="WL">Water Leaks</option>
+                                    <option value="SS">Shortage of supply</option>
+                                </select>-->
+                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="category" id="cat1" autocomplete="off" value="RD" checked>
+                                    <label class="btn btn-outline-primary" for="cat1">Road Damage</label>
+                                  
+                                    <input type="radio" class="btn-check" name="category" id="cat2" autocomplete="off" value="TR">
+                                    <label class="btn btn-outline-primary" for="cat2">Tarring required</label>
+                                  
+                                  </div>
                                 </div>
                                 <div class="form-group">
                                     <!-- <label class="label">Give Your Complaint Description</label> -->
@@ -91,32 +93,42 @@ Complaints_road
                                 <!-- <label class="label">Specify your Address/Landmark to identify the place</label> -->
                                 
                                 <textarea placeholder="Specify your Address/Landmark to identify the place" class="txtarea" name="landmark"></textarea>
+                                
+                                 
                             </div>
                                    <div class="form-group">
                                     <label class="label">Complaint filed by </label>
-                                       
-                                       <select name="sender">
-                                        <option value="{{ user }}">{{ user }}</option>
-                                    </select>
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="s1">
+                                        <input type="radio" class="btn-check" name="sender" for="s1" autocomplete="off" value="{{ user }}" checked>
+                                        <label class="btn btn-outline-primary">{{ user }}</label>
+                                      </div>
                                    </div>
-                                   <!--<div class="form-group">
-                                    <label class="label">Status of Complaint </label>
-                                    
-                                    <select name="status">
-                                        <option value="US">Unsolved</option>
-                                    </select>
+                            <div class="form-group">
+                                <label class="label">Status of complaint </label>
+                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="status"  autocomplete="off"  value="US" checked>
+                                    <label class="btn btn-outline-primary">Unsolved</label>
+                                </div>
+                                </div>
+                               <!--<div class="form-group">
+                                    <button onclick="getLocation()">Pass current position</button>
+                                    <p id="demo">dhj</p>
+                                     <div id="mapholder">
+                                     </div>
                                 </div>-->
                             <div class="form-group">
                                 <input class="btn" type="submit" value="File the Complaint">
-                                <input class="btn" type="reset"  value="Cancel"> 
+                                <input class="btn" type="reset"  value="Cancel" style="color:white;border:rgb(26, 228, 26);border-radius:10px;">
                             </div>
                         </form>
+                       
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        
+   
+   
 </body>
 </html>
 {% if messages %}
