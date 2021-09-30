@@ -185,6 +185,9 @@ a.socialIcon:hover,
    .nav-item
    {
        background-color: black;
+       font-family: 'Times New Roman', Times, serif;
+       font-size: large;
+       font-weight: 600;
    }
   
    .nav-tabs >li>a:focus{
