@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Registeration
+App landing
 {% endblock title %}
 
 {% block content %}
-
-{% load static%}
+<!-- You are public user -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,24 +27,20 @@ Registeration
             <div class="col-md-12">
                 <div class="card" >
                     
-                    <form  action="/trial/register/" method="POST" class="box">
+                    <form  action="/trial/success/" method="POST" class="box">
                         {% csrf_token %}
                         <img class="card-img" src="{% static 'images/finallogo.jpeg' %}" alt="logo"/>
-                        <h1>REGISTER</h1>
-                        <p class="text-muted"> </p> <input type="text" name="name" placeholder="Enter your name:" required> 
-                        <input type="text" name="phoneno" placeholder="Your mobile number" required>
-                        <input type="text" name="region" placeholder="Your panchayat name" required>  
+                        <h1>SEARCH A LOCATION</h1>
+                        <p class="text-muted"> </p> <input type="text" name="location" placeholder="Location" minlength="3" required>
                          <!-- <a class="forgot text-muted" href="#">Forgot password?</a> -->
-                          <input type="submit" value="Login">
-                        <div class="col-md-12">
-                            <a href="/trial/index/">Already have an account? Login</a>
-                        </div>
+                          <input type="submit" value="Submit">
+                          <a href="#" style="color:white">Or is it location your current location?</p>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
-        
 </body>
 </html>
 {% endblock content %}
