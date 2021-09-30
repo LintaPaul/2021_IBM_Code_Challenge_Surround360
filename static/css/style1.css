@@ -20,25 +20,44 @@
   h1,h2{
     color: rgb(107, 19, 38);
   }
-  /* .btn{
-    background: #272788;
-    color: #f1f1ff;
-    padding: 5px 10px;
-    text-align: center;
-  } */
-  /* .btn:hover{
-    color: #8d282d;
-    background: #8888d1;
-    padding: 3px 8px;
-    border: 2px solid;
+
+  .sidenav{
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
   
-  } */
+.sidenav a{
+    padding: 6px 6px 6px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+.sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+  }
+  
+ 
   .side-menu{
     position: fixed;
     background: #9e0633;
     width: 19vw;
     height: 100vh;
-    /* min-height: 100vh; */
+  
     display: flex;
     flex-direction: column;
   }
@@ -53,7 +72,9 @@
     font-family: 'Times New Roman', Times, serif;
     color:aliceblue;
   }
+
   .side-menu li{
+    text-decoration: none;
     font-size: 20px;
     padding: 10px 40px;
     color: aliceblue;
@@ -62,6 +83,7 @@
   }
   
   .side-menu li:hover{
+    text-decoration: none;
     background: aliceblue;
     color:#9e0633;
   }
