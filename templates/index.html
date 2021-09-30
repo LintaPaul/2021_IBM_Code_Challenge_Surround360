@@ -57,11 +57,11 @@ App landing
                     <form  action="/trial/login/" method="POST" class="box">
                         {% csrf_token %}
                         <img class="card-img" src="{% static 'images/finallogo.jpeg' %}" alt="logo"/>
-                        <h1>Welcome</h1>
-                        <p class="text-muted"> </p> <input type="text" name="name" placeholder="Your name" required> 
-                        <input type="text" name="phoneno" placeholder="Enter your phone number" required> 
+                        <h1 style="font-family: 'Times New Roman', Times, serif;">Welcome</h1>
+                        <p class="text-muted"> </p> <input style="font-family: 'Times New Roman', Times, serif;" type="text" name="name" placeholder="Your name" required> 
+                        <input type="text" style="font-family: 'Times New Roman', Times, serif;" name="phoneno" placeholder="Enter your phone number" required> 
                          <!-- <a class="forgot text-muted" href="#">Forgot password?</a> -->
-                          <input type="submit" value="Login">
+                          <input type="submit" style="font-family: 'Times New Roman', Times, serif; font-size: large;" value="Login">
                           {% if messages%}
                             {% for message in messages %}
                                 <div class="alert alert-{{ message.tags }}"> 
@@ -72,8 +72,12 @@ App landing
                                 </div>
                             {% endfor %}
                         {% endif %}
-                        <div class="col-md-12">
-                            <a href="/trial/form/" style="color: #C3073F;" >New user? Sign up</a>
+                        <div class="col-md-4" style="background-color: #C3073F; margin-left: 35%; font-weight: 700; font-size: large; font-family: 'Times New Roman', Times, serif;">
+                            <a href="/trial/form/" style="color: #0e0c0d;" >New user? Sign Up</a>
+
+                           
+                            
+
                         </div>
                     </form>
                 </div>
