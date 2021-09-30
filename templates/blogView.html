@@ -4,19 +4,168 @@
 {% load static %}
 <html>
 	{% for blog in blogs %}
-		<article class="media content-section">
+		<!-- <article class="media content-section">
 			<div class="media-body">
 				<div class="article-metadata">
 					<a class="mr-2" href="#">{{ blog.location }}</a>
-					<!-- <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small> -->
+					
 				</div>
-				<!-- <h2><a class="article-title" href="#"></a>{{ post.title }}</h2> -->
+				
 				<p class="article-content">{{ blog.review }}</p>
 				<p>{{ blog.image.url }}</p>
 				<img src="{{ blog.image.url }}">
 			
 			</div>	
-		</article>
+		</article> -->
+		<!DOCTYPE html>
+<html>
+<head>
+	<title>Post</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+			box-sizing: border-box;
+		}@font-face{
+			font-family: f;
+			src:url("q.ttf");
+		}
+		body{
+			
+			font-family: f;
+			color:#000000d1;
+			background: linear-gradient(to right, #C3073F, #1A1A1D)
+		}.post{
+			position: absolute;
+			top:50%;
+			left: 50%;
+transform: translate(-50% , -50%);
+width: 500px;
+border-radius: 10px;
+background: black;
+		}
+		a {
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+} 
+.p
+{
+	color: white;
+}
+.head{
+			display: flex;
+			border-radius:10px;
+			padding: 15px;
+			background: black;
+			align-items: center;
+			justify-content: space-between;
+		}.avatar{
+			width: 40px;
+			height: 40px;
+			border-radius: 50px;
+
+		}.name_profile{
+			display: flex;
+			align-items: center;
+		}.q{
+			margin-left: 10px;
+		}.q p{
+			color:white;
+			font-size: 13px;
+		}.svg{
+			height: 23px;
+			width: 23px;
+
+		}.body{
+			padding-left: 15px;
+			padding-right: 15px;
+			color: white;
+			
+		}.body p{
+			font-size: 14px;
+		}.post_image{
+			margin:auto;
+			height: 250px;
+			width: 100%;
+			margin-top: 10px;
+			border-radius: 10px;
+		}.btm_icon{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}.left_icon{
+			margin-left: 10px;
+			margin-top:15px;
+		}.margin{
+			margin-left: 15px;
+		}.right_icon{margin-top:15px;
+
+		}form{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}.ico{
+			width: 40px;
+			height: 40px;
+			border-radius: 50px;
+
+		}.in{
+			background: transparent;
+			border:none;
+			outline: none;
+			margin-left: 15px;
+
+		}.flex{
+			display: flex;
+			align-items: center;
+
+		}form{
+			background: #d3d3d347;
+border-radius: 10px;
+			padding: 10px;
+			margin-bottom: 10px;
+			margin-top:20px;
+		}
+	</style>
+</head>
+<body>
+<div class="post">
+	<div class="head">
+		<div class="name_profile">
+			
+			<div class="q">
+				
+				<p style="font-size: 30px;" class="mr-2" >{{ blog.location }}</p>
+			</div>
+		</div>
+		<!-- <div class="icon">
+			<img src="ore.svg" class="svg">
+		</div> -->
+		
+	</div>
+	<div class="body">
+		<p style="font-size: 20px;" class="article-content">{{ blog.review }}</p>
+			<img class="post_image" src="/media/{{blog.image}}">
+			<!-- <div class="btm_icon">
+				<div class="left_icon">
+					<img src="heart.svg" class="svg margin">
+					<img src="comment.svg" class="svg margin">
+					<img src="share.svg" class="svg margin">
+				</div>
+				<div class="right_icon">
+					<img src="save.svg" class="svg margin">
+				</div>
+			</div> -->
+			<!-- <form><div class="flex">
+				<img src="book.jpg" class="ico">
+				<input type="text" name="" placeholder="Enter Text..." class="in"></div>
+					<img src="send.svg" class="svg margin">
+			</form> -->
+		</div>
+</div>
+</body>
+</html>
 	{% endfor %}
 	</html>
 {% endblock content %}
