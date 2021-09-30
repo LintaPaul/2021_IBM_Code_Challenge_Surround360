@@ -45,3 +45,13 @@ body {
     border-radius: 10%;
     align-content: center;
 }
+.filed{
+    color: rgb(17, 70, 116);
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+}
+.complaints-head{
+    font-size: 800;
+    font-family: 'Times New Roman', Times, serif;
+    color:aqua;
+}

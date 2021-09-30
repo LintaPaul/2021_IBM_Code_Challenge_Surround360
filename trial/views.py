@@ -24,7 +24,24 @@ def logOut(request):
   logout(request)
   return HttpResponseRedirect('/trial/index')
 
+<<<<<<< HEAD
+def usertype(request):
+  type_sel="nill"
+  if request.method == "POST":
+    mytype=Usertype(request.POST)
 
+    if mytype.is_valid():
+      type_sel=mytype.cleaned_data['usertype']
+      if type_sel=="Public":
+        return HttpResponseRedirect('/trial/public/')
+      elif type_sel=="Official":
+        return HttpResponseRedirect('/trial/official/')
+    else:
+      mytype=Usertype()
+    return HttpResponseRedirect('/trial/index/')
+=======
+
+>>>>>>> 3c00be278ba7ae05a1ea9f3fbb2956e19116909d
 def gotoregister(request):
   return render(request, 'register_public.html')
 
@@ -112,7 +129,11 @@ def login_official(request):
         return render(request,'landing_official.html',{'user': official_object})
       else:
         messages.warning(request, f'Invalid Login')
+<<<<<<< HEAD
+        return HttpResponseRedirect('/trial/official/')
+=======
         return HttpResponseRedirect('/trial/index/')
+>>>>>>> 3c00be278ba7ae05a1ea9f3fbb2956e19116909d
     else:
       details = LoggedOfficial()
   return HttpResponseRedirect('/trial/index/')
