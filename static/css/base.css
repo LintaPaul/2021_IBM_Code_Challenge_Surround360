@@ -1,8 +1,14 @@
+
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
 body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background: linear-gradient(to right, #C3073F, #1A1A1D)
+    background: linear-gradient(to right, #C3073F, #1A1A1D);
+    font-family: 'Times New Roman', Times, serif;
+    
 }
 
 .heading{
