@@ -27,7 +27,7 @@ App landing
             <div class="col-md-12">
                 <div class="card" >
                     
-                    <form  action="/trial/success/" method="POST" class="box">
+                    <form  action="{% url 'neighbourhoodSearch' %}" method="POST" class="box">
                         {% csrf_token %}
                         <img class="card-img" src="{% static 'images/finallogo.jpeg' %}" alt="logo"/>
                         <h1>SEARCH A LOCATION</h1>

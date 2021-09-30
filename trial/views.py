@@ -43,6 +43,8 @@ def gotocroads(request):
   luser=request.session.get('user')
   return render(request, 'complaints_road.html',{'user':luser})
 
+def gotosearch(request):
+  return render(request, 'search.html')
 
 def officialLanding(request):
   return render(request, 'landing_official.html')
@@ -224,4 +226,12 @@ def addpost(request):
         else:
           form=BlogPost()
   return HttpResponseRedirect('/trial/blog/')
- 
+
+def search(request):
+  value = request.POST.get('location')
+  # location_obj = tourist.objects.filter(location = value)
+  context = {
+    'blogs' : Tourist.objects.filter(location = value)
+  }
+  return render(request, 'blogView.html', context)
+  
