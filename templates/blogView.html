@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% csrf_token %}
 {% block content %}
-	{% for blog in blogs %}
+{% load static %}
+
+	
 		<!-- <article class="media content-section">
 			<div class="media-body">
 				<div class="article-metadata">
@@ -10,8 +12,8 @@
 				</div>
 				
 				<p class="article-content">{{ blog.review }}</p>
-				<p>{{ blog.image }}</p>
-				<img src="/media/{{blog.image}}" width="100" height="100">
+				<p>{{ blog.image.url }}</p>
+				<img src="{{ blog.image.url }}">
 			
 			</div>	
 		</article> -->
@@ -128,7 +130,11 @@ border-radius: 10px;
 	</style>
 </head>
 <body>
+	
+<div>
+ 
 <div class="post">
+	{% for blog in blogs %}
 	<div class="head">
 		<div class="name_profile">
 			
@@ -143,26 +149,16 @@ border-radius: 10px;
 		
 	</div>
 	<div class="body">
+		
+		
 		<p style="font-size: 20px;" class="article-content">{{ blog.review }}</p>
-			<img class="post_image" src="/media/{{blog.image}}">
-			<!-- <div class="btm_icon">
-				<div class="left_icon">
-					<img src="heart.svg" class="svg margin">
-					<img src="comment.svg" class="svg margin">
-					<img src="share.svg" class="svg margin">
-				</div>
-				<div class="right_icon">
-					<img src="save.svg" class="svg margin">
-				</div>
-			</div> -->
-			<!-- <form><div class="flex">
-				<img src="book.jpg" class="ico">
-				<input type="text" name="" placeholder="Enter Text..." class="in"></div>
-					<img src="send.svg" class="svg margin">
-			</form> -->
+			<img class="post_image" src="{{ blog.image.url }}">
 		</div>
-</div>
+		
+ </div>
+
+</div>	
+{% endfor %}
 </body>
 </html>
-	{% endfor %}
 {% endblock content %}

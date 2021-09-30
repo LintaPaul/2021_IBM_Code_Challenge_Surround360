@@ -233,5 +233,5 @@ def search(request):
   context = {
     'blogs' : Tourist.objects.filter(location = value),
   }
-  return render(request, 'blogView.html', context)
+  return render(request, 'blogView_new.html', context)
   

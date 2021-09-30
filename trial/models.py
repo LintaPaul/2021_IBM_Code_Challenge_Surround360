@@ -37,7 +37,7 @@ class Tourist(models.Model):
     review = models.CharField(max_length = 500)
     rating = models.IntegerField()  
     #postdate = models.DateTimeField(default = timezone.now)            #out of 5
-    image = models.ImageField(upload_to = 'trial/images/')   #path to image
+    image = models.ImageField(upload_to = 'images/')   #path to image
 
 
 
