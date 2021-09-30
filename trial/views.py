@@ -128,3 +128,7 @@ def complaints(request):
     
   return render(request, 'view_complaints.html', context)
 
+def success(request):
+  return render(request, 'success.html')
+
+
