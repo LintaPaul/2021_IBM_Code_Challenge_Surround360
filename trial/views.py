@@ -71,7 +71,12 @@ def login_public(request):
       if user_object:
         messages.success(request,'Login successfull!!!')
         request.session['user']=name
-        return render(request,'dashboard_public.html',{'user': user_object})
+        try:
+          scomp=Complaints.objects.filter(sender=name,status='S').count()
+          uncomp=Complaints.objects.filter(sender=name,status='US').count()
+        except Complaints.DoesNotExist:
+          scomp= None
+        return render(request,'dashboard_public.html',{'user': user_object,'solved':scomp,'unsolved':uncomp})
       else:
         messages.success(request,'Invalid Login')
         return HttpResponseRedirect('/trial/index/')

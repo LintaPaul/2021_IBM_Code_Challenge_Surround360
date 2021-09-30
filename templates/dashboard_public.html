@@ -13,11 +13,16 @@ Dashboard_user
 
 {% endif %} -->
  {% for users in user %}
-   <div class="container" style="color:white;">
-    Logged in user: {{ users.name }}
+   <p style="color:white;margin-left: 15%;">
+    Logged in user: {{ users.name }} <br>
     Your region: {{ users.region }}
-   </div>  
+   </p>  
+
  {% endfor %}
+ <p style="color:white; margin-left: 15%;">
+    Status of your complaints:<br>
+    Solved :{{ solved }}<br>
+ Unsolved: {{ unsolved }}</p>
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
