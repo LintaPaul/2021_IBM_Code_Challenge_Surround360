@@ -19,7 +19,8 @@ urlpatterns = [
     path('road/',views.gotocroads,name="roads"),
     path('complaints/',views.file_water,name="complaints"),
     path('blog/', views.blog, name = "blog"),
-    path('viewcomplaints/', views.complaints, name = 'complaints'),
-    path('success/', views.success, name = "success")
+    path('viewcomplaints/', views.complaints, name = 'viewcomplaints'),
+    path('success/', views.success, name = "success"),
+    path('changestatus/<int:id>', views.changestatus, name = 'changestatus'),
 ]
 

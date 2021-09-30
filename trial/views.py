@@ -122,8 +122,9 @@ def complaints(request):
   for o in official_obj:
     dept = o.department
     subdept = o.subdept
+    region = o.region
     context = {
-      'complaints': Complaints.objects.filter(dept = dept, category = subdept)
+      'complaints': Complaints.objects.filter(dept = dept, category = subdept, region = region)
     }
     
   return render(request, 'view_complaints.html', context)
@@ -131,4 +132,28 @@ def complaints(request):
 def success(request):
   return render(request, 'success.html')
 
+def officialProfile(request):
+  off = request.session.get('eid')
+  official_obj = Official.objects.filter(empid = off)
+  for o in official_obj:
+    name = o.name
+    d = o.department
+    subd = o.subdept
+    score = o.score
+  
+  if d == 'W':
+    dept = 'Water'
+  elif d == 'E':
+    dept = 'Electricity'
+  else:
+    dept = 'Roads'
+  
+  if subd == 'WL':
+    subdept = 'Water Leaks'
+  return render(request, 'offprofile.html', {'name':name, 'dept':dept, 'subdept':subdept, 'score':score})
 
+def changestatus(request, id):
+  
+  Complaints.objects.filter(id = id).update(status = 'S')
+  
+  return HttpResponseRedirect('/trial/viewcomplaints/')
