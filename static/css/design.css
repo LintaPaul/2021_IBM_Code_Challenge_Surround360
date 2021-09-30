@@ -47,7 +47,8 @@ body {
 }
 
 .box input[type="text"],
-.box input[type="password"] {
+.box input[type="password"]
+.box input[type="number"]{
     border: 0;
     background: none;
     display: block;
@@ -69,7 +70,8 @@ body {
 }
 
 .box input[type="text"]:focus,
-.box input[type="password"]:focus {
+.box input[type="password"]:focus
+.box input[type="number"]:focus{
     width: 300px;
     border-color: #2ecc71
 }
@@ -186,4 +188,16 @@ a.socialIcon:hover,
       border: medium none;
       border-radius: 0;
       color:#fff;
+  }
+
+.card-success {
+        margin-bottom: 20px;
+        border: none;
+        background-color: #000000;
+      padding-top: 305px;
+      padding-left: 200px;
+      padding-right: 200px;
+      padding-bottom: 348px;
+      text-align: center;
+      color: white;
   }

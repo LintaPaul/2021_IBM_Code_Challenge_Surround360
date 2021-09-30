@@ -10,21 +10,12 @@
 	<h2> {{official}}</h2>
 	<link rel="stylesheet" href="{% static 'css/view_complaints.css'%}">
 	{% for complaint in complaints%}
-		{% if complaint.status == 'US' %}
+		{% if complaint.status == 'S' %}
 			<article class="media content-section">
 				<div class="col-sm-5">
 					<div class="card l-bg-cherry" >
 						<h4 class="mr-2" style="margin: 3%; font-family: 'Times New Roman', Times, serif;">The complaint was filed by <b>{{ complaint.sender }}</b></h4>
-						<small class="text-muted" style="margin-left: 3%; font-family: 'Times New Roman', Times, serif;"> Status of now <b>Unsolved</b>
-							{% if complaint.status %}						
-								<div class="US" >
-									<a href="{% url 'changestatus' id=complaint.id %}">
-										<button style="color: aliceblue;" href = "{% url 'changestatus' id=complaint.id %}"><b>Change Status</b></button>
-									</a>
-								</div>
-						{% endif %}
-						
-						</small>
+						<small class="text-muted" style="margin-left: 3%; font-family: 'Times New Roman', Times, serif;"> Status of now <b>Solved</b></small>
 					<div class="card-body" >
 						<h5 class="card-title" style="margin: 3%; font-family: 'Times New Roman', Times, serif;"><h6 style="margin: 3%; font-family: 'Times New Roman', Times, serif;">Complaint Description:</h6> <h4 style="margin: 2%; font-family: 'Times New Roman', Times, serif; color: crimson;"> {{ complaint.complaint}}</h4> </h5>
 						<!-- <p class="card-text">{{ complaint.id}}</p> -->
@@ -35,6 +26,6 @@
 				</div>
 				<br>
 			</article>
-		{% endif %}
+		{% endif  %}
 	{% endfor %}
 {% endblock content %}

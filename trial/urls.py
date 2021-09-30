@@ -21,6 +21,12 @@ urlpatterns = [
     path('celec/',views.file_elec,name="celec"),
     path('croad/',views.file_road,name="croad"),
     path('blog/', views.blog, name = "blog"),
-    path('viewcomplaints/', views.complaints, name = 'complaints'),
+    path('viewcomplaints/', views.complaints, name = 'viewcomplaints'),
+    path('view_solved_complaints/', views.solvedcomplaints, name = 'viewsolvedcomplaints'),
+    path('success/', views.success, name = "success"),
+    path('changestatus/<int:id>', views.changestatus, name = 'changestatus'),
+    path('official/Profile/', views.officialProfile, name = 'officialProfile'),
+
+
 ]
 
