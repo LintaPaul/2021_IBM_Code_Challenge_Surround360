@@ -20,7 +20,11 @@ urlpatterns = [
     path('complaints/',views.file_water,name="complaints"),
     path('blog/', views.blog, name = "blog"),
     path('viewcomplaints/', views.complaints, name = 'viewcomplaints'),
+    path('view_solved_complaints/', views.solvedcomplaints, name = 'viewsolvedcomplaints'),
     path('success/', views.success, name = "success"),
     path('changestatus/<int:id>', views.changestatus, name = 'changestatus'),
+    path('official/Profile/', views.officialProfile, name = 'officialProfile'),
+
+
 ]
 

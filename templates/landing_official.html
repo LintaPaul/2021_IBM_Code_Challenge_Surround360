@@ -27,7 +27,7 @@ Dashboard_user
         </div>
         <ul >
             <li ><a  href="#" style="color: black; font-weight: 700;">Notifications</a></li>
-            <li ><a href="#" style="color: black; font-weight: 700;">Profile</a></li>
+            <li ><a href="{% url 'officialProfile' %}" style="color: black; font-weight: 700;">Profile</a></li>
 
         </ul>
         <a class="d-flex float-right" href="/trial/logout/">
@@ -78,9 +78,20 @@ Dashboard_user
               <div class="card-body">
                 <a href="/trial/viewcomplaints/">
                   <!-- <button class="button_slide slide_down" href = "/trial/viewcomplaints/"><h5 class="btntxt mb-0">Complaints</h5></button> -->
-                  <a href="/trial/viewcomplaints/" class="btn btn-primary">Complaints</a>
+                  <a href="/trial/viewcomplaints/" class="btn btn-primary">View Active Complaints</a>
                 </a>
-                
+                <p class="card-text"></p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" style="margin:2%">
+            <div class="card" >
+              <div class="card-body">
+                <a href="/trial/view_solved_complaints/">
+                  <!-- <button class="button_slide slide_down" href = "/trial/viewcomplaints/"><h5 class="btntxt mb-0">Complaints</h5></button> -->
+                  <a href="/trial/view_solved_complaints/" class="btn btn-primary">View Solved Complaints</a>
+                </a>
                 <p class="card-text"></p>
                 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
               </div>
