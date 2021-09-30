@@ -6,8 +6,8 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .models import Public
 from .forms import Usertype,Newuser,Loggeduser,Complaintform
-from .models import Public, Official, Complaints
-from .forms import Usertype,Newuser,Loggeduser, LoggedOfficial
+from .models import Public, Official, Complaints, Tourist
+from .forms import Usertype,Newuser,Loggeduser, LoggedOfficial,BlogPost
 from django.contrib import messages
 from django.contrib.auth import logout
 
@@ -209,3 +209,14 @@ def changestatus(request, id):
   Complaints.objects.filter(id = id).update(status = 'S')
   return HttpResponseRedirect('/trial/viewcomplaints/')
 
+def addpost(request):
+  if request.method == "POST":
+        form = BlogPost(request.POST, request.FILES)
+        if form.is_valid():
+           form.save()
+           messages.success(request,"Blog posted!!! Thank you")
+           return HttpResponseRedirect('/trial/blog/')
+        else:
+          form=BlogPost()
+  return HttpResponseRedirect('/trial/blog/')
+ 

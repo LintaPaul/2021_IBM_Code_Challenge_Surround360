@@ -1,5 +1,5 @@
 from django import forms
-from .models import Public,Complaints
+from .models import Public,Complaints,Tourist
 USER_CHOICES= [
     ('public', 'Public'),
     ('official', 'Official'),
@@ -33,3 +33,8 @@ class Complaintform(forms.ModelForm):
         if status is None:
             return self.fields['status'].initial
         return status
+
+class BlogPost(forms.ModelForm):
+    class Meta:
+        model = Tourist
+        fields = ('location','rating','review','image' )

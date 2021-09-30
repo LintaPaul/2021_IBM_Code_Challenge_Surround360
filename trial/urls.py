@@ -2,6 +2,9 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('index/', views.index, name='index'),
@@ -11,7 +14,7 @@ urlpatterns = [
     path('form/',views.gotoregister,name="form"),
     path('register/',views.register,name="register"),
     path('login/',views.login_public,name="login"),
-   # path('login_official/',views.login_official,name="officialhome"),
+  
     path('officialhome/',views.login_official,name="officialhome"),
     path('logout/', views.logOut, name = 'logout'),
     path('home/',views.gotohome,name="home"),
@@ -27,7 +30,10 @@ urlpatterns = [
     path('success/', views.success, name = "success"),
     path('changestatus/<int:id>', views.changestatus, name = 'changestatus'),
     path('official/Profile/', views.officialProfile, name = 'officialProfile'),
+    path('postadd/',views.addpost,name="postadd"),
 
 
 ]
-
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)

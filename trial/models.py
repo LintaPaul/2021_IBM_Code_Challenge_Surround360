@@ -1,6 +1,6 @@
 from django.db import models
 
-
+from django.utils import timezone
 # Create your models here.
 class Official(models.Model):
     DEPTS=(('W',"Water"),('E',"Electricity"),('R',"Roads"))
@@ -32,11 +32,12 @@ class Complaints(models.Model):
     sender=models.CharField(max_length=30,default="Nill")
     status=models.CharField(max_length=2,choices=STATUS,default="US")
     
-class tourist(models.Model):
+class Tourist(models.Model):
     location = models.CharField(max_length = 180)
     review = models.CharField(max_length = 500)
-    rating = models.IntegerField()              #out of 5
-    image = models.ImageField(upload_to = '')   #path to image
+    rating = models.IntegerField()  
+    #postdate = models.DateTimeField(default = timezone.now)            #out of 5
+    image = models.ImageField(upload_to = 'trial/images/')   #path to image
 
 
 

@@ -14,6 +14,9 @@ App landing
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/design.css'%}">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <title>Document</title>
     <!-- <style>
         
@@ -27,22 +30,33 @@ App landing
             <div class="col-md-12">
                 <div class="card" >
                     
-                    <form  action="/trial/#" method="POST" class="box">
+                    <form  method="POST" enctype="multipart/form-data"  action="/trial/postadd/" class="box">
                         {% csrf_token %}
                         <img class="card-img" src="{% static 'images/finallogo.jpeg' %}" alt="logo"/>
                         <h1>WELCOME TO THE TOURIST PORTAL</h1>
                         <p style="color:white">*You can add less visited tourist destination in your area.</p>
                         <p class="text-muted"> </p> <input type="text" name="location" placeholder="Location" minlength="3" required> 
                         <input type="number" name="rating" placeholder="Rating(Out of 5)" min="1" max="5" required> 
-                        <input type="text" name="review" placeholder="Review"></input>
-                        <input type="file" id="myFile" name="filename">
-                         <!-- <a class="forgot text-muted" href="#">Forgot password?</a> -->
+                        <input type="text" name="review" placeholder="Review">
+                        <input type="file" id="myFile" name="image">
+                         <!---<a class="forgot text-muted" href="#">Forgot password?</a> 
+                         <input type="date" name="postdate" placeholder="Today's date" autocomplete="on">-->
                           <input type="submit" value="Submit">
 
                     </form>
                 </div>
             </div>
         </div>
+        {% if messages%}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}"> 
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+        {% endfor %}
+    {% endif %}
     </div>
 </body>
 </html>
