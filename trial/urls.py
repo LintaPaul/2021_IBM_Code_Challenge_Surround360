@@ -20,5 +20,6 @@ urlpatterns = [
     path('complaints/',views.file_water,name="complaints"),
     path('blog/', views.blog, name = "blog"),
     path('viewcomplaints/', views.complaints, name = 'complaints'),
+    path('success/', views.success, name = "success")
 ]
 
