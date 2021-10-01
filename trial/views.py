@@ -43,6 +43,26 @@ def gotocroads(request):
   luser=request.session.get('user')
   return render(request, 'complaints_road.html',{'user':luser})
 
+def gobackdashboard(request):
+  name=request.session.get('user')
+  if name:
+    try:
+      user_object=Public.objects.filter(name=name)
+      scomp=Complaints.objects.filter(sender=name,status='S').count()
+      uncomp=Complaints.objects.filter(sender=name,status='US').count()
+    except Complaints.DoesNotExist:
+      scomp= None
+      uncomp=None
+  return render(request,'dashboard_public.html',{'user': user_object,'solved':scomp,'unsolved':uncomp})
+
+def gobackofficial(request):
+  en=request.session.get('eid')
+  try:
+    off_obj=Official.objects.filter(empid=en)
+  except:
+    off_obj=None
+  return render(request,'landing_official.html',{'user':off_obj})
+
 def gotosearch(request):
   return render(request, 'search.html')
 
