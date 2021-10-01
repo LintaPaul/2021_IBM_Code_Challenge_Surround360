@@ -178,7 +178,6 @@ def complaints(request):
     context = {
       'complaints': Complaints.objects.filter(dept = dept, category = subdept, region = region)
     }
-    
   return render(request, 'view_complaints.html', context)
 
 
@@ -238,8 +237,9 @@ def changestatus(request, id):
   return HttpResponseRedirect('/trial/viewcomplaints/')
 
 def contact(request, name):
-  public = Public.objects.get(name = name)
-  return HttpResponse(public.phoneno)
+  public = Public.objects.filter(name = name)
+  
+  return render(request, 'view_complaints.html',{'phone':public})
 
 def addpost(request):
   if request.method == "POST":
