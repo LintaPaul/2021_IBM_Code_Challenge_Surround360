@@ -16,13 +16,15 @@
     <b>{{score}}</b> -->
 <style>
     .card{
+        margin-right: auto;
+        margin-left: auto;
         background-color: #fff;
     text-align: center;
     width: 50%;
     height: 50%;
     border-radius: 10px;
     border: none;
-    position: relative;
+    /* position: relative; */
     margin-bottom: 30px;
     box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
     }
@@ -31,46 +33,41 @@
     background: linear-gradient(to right, #C3073F, #000000) !important;
     color: #fff;
     
+    
+}
+.container
+{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
 </style>
-<button class="btn btn-primary btn-small ma-2 ml-4"> 
-    <a href="/trial/backofhome/" style="color:white;text-decoration: none;">Back to Dashboard</a>
-    </button>
-    <div class="col-md 2" style="margin: 10%;">
-        <div class="card l-bg-cherry">
-            <div class="card-statistic-3 p-sm-1 ">
-                <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
-                <div class="mb-2">
-                    <h5 class="card-title mb-0" style="font-family: 'Times New Roman', Times, serif; font-size: 4rem; font-weight: 800;">Profile</h5>
-                </div>
-                <div class="row align-items-center mb-2 d-flex" style="margin-left: 10%; margin: 5%; font-size: 1.5rem; font-family: 'Times New Roman', Times, serif;">
-                    Name : {{name}}<br>
-                    Department: {{dept}}<br>
-                    Sub Department: {{subdept}}<br>
-                    Score: {{score}}
-                    <div class="col-8" >
-                        <h2 class="d-flex align-items-center mb-0" >
-                            <!-- Name {{name}}
-                            <label for="name">Department  <b>{{dept}}</label>
-                            <label for="name">Sub Department <b>{{subdept}}</b></label>
-                         <br><label for="name">Score <b>{{score}}</b></label>
-     -->
-                          <br>
-<!--                             
-                            <a href="/trial/elec/" >
-                                <button class="button_slide slide_down" href=""><h5 class="btntxt mb-0">Raise an issue</h5></button>
-                             </a> -->
-                        </h2>
+    <div class="container">
+        <div class="col-md 2"  style="margin: 10%; ">
+            <div class="card l-bg-cherry">
+                <div class="card-statistic-3 p-sm-1 ">
+                    <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="mb-2">
+                        <h5 class="card-title mb-0" style="font-family: 'Times New Roman', Times, serif; font-size: 4rem; font-weight: 800;">Profile</h5>
                     </div>
-                    <!-- <div class="col-4 text-right">
-                        <span>12.5% <i class="fa fa-arrow-up"></i></span>
-                    </div> -->
+                    <div class="row align-items-center mb-2 d-flex" style="margin-left: 10%; margin: 5%; font-size: 1.5rem; font-family: 'Times New Roman', Times, serif;">
+                        Name : {{name}}<br>
+                        Department: {{dept}}<br>
+                        Sub Department: {{subdept}}<br>
+                        Score: {{score}}
+                        <div class="col-8" >
+                            <h2 class="d-flex align-items-center mb-0" >
+                                
+         
+                              <br>
+    
+                            </h2>
+                        </div>
+                        
+                    </div>
+                    
                 </div>
-                <!-- <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                    <div class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
-                </div> -->
             </div>
         </div>
     </div>
