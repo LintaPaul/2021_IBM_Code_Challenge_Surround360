@@ -181,6 +181,7 @@ def complaints(request):
     
   return render(request, 'view_complaints.html', context)
 
+
 def solvedcomplaints(request):
   off = request.session.get('eid')
   official_obj = Official.objects.filter(empid = off)
@@ -235,6 +236,10 @@ def changestatus(request, id):
   Official.objects.filter(empid = off).update(score = score+1)
   Complaints.objects.filter(id = id).update(status = 'S')
   return HttpResponseRedirect('/trial/viewcomplaints/')
+
+def contact(request, name):
+  public = Public.objects.get(name = name)
+  return HttpResponse(public.phoneno)
 
 def addpost(request):
   if request.method == "POST":
