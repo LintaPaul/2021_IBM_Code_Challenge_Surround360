@@ -237,9 +237,8 @@ def changestatus(request, id):
   return HttpResponseRedirect('/trial/viewcomplaints/')
 
 def contact(request, name):
-  public = Public.objects.filter(name = name)
-  
-  return render(request, 'view_complaints.html',{'phone':public})
+  public = Public.objects.get(name = name)
+  return HttpResponse(public.phoneno)
 
 def addpost(request):
   if request.method == "POST":

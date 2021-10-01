@@ -16,10 +16,23 @@
     <!-- <link rel="stylesheet" href="/css/bootstrap.css"> -->
    <!--- <link rel="stylesheet" href="{% static 'css/style1.css'%}">-->
     <title>View Complaints</title>
+	
 </head>
 <body>
 	
 	<style>
+		.collapsible {
+			background: linear-gradient(to right, #C3073F, #1A1A1D);;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  /* width: 100%; */
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  width: 50% !important;
+}
 		body{
 			background: linear-gradient(to right, #C3073F, #1A1A1D);
 		}
@@ -65,13 +78,39 @@
 						{% endif %}
 						
 						</small>
+<<<<<<< HEAD
 						<!--<a href="{% url 'contact' name=complaint.sender %}">contact {{ complaint.sender }}</a>
 						<p>{{ phone }}</p>-->
+=======
+						<!-- <a href="{% url 'contact' name=complaint.sender %}"> -->
+							
+							<button  class="btn collapsible" style="margin-left: 5%; margin-bottom: 2%; border: 1px solid;color:white;" class="button_slide2 slide_down" href="/trial/logout/"><h6 href = "{% url 'contact' name=complaint.sender %}"><b>Contact {{ complaint.sender }}</b></h6></button>
+							<div class="content">
+								<p>Lorem ipsum dolor </p>
+							  </div>
+						<!-- </a> -->
+>>>>>>> e8c91eadc48b9bd49cfa22c58905cc79f4c2c74b
 					</div>
 					<br>
 				</div>
 				<br>
 			</article>
+			<script>
+				var coll = document.getElementsByClassName("collapsible");
+				var i;
+				
+				for (i = 0; i < coll.length; i++) {
+				  coll[i].addEventListener("click", function() {
+					this.classList.toggle("active");
+					var content = this.nextElementSibling;
+					if (content.style.display === "block") {
+					  content.style.display = "none";
+					} else {
+					  content.style.display = "block";
+					}
+				  });
+				}
+				</script>
 		
 		{% endif %}
 	
