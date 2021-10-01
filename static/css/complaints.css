@@ -235,3 +235,12 @@ a.socialIcon:hover,
     transition: 0.25s
 }
 
+.backbtn
+{
+    color: white!important;
+    background-color: black!important;
+}
+.backbtn:hover
+{
+    background-color: #2ecc71;
+}

@@ -43,6 +43,26 @@ def gotocroads(request):
   luser=request.session.get('user')
   return render(request, 'complaints_road.html',{'user':luser})
 
+def gobackdashboard(request):
+  name=request.session.get('user')
+  if name:
+    try:
+      user_object=Public.objects.filter(name=name)
+      scomp=Complaints.objects.filter(sender=name,status='S').count()
+      uncomp=Complaints.objects.filter(sender=name,status='US').count()
+    except Complaints.DoesNotExist:
+      scomp= None
+      uncomp=None
+  return render(request,'dashboard_public.html',{'user': user_object,'solved':scomp,'unsolved':uncomp})
+
+def gobackofficial(request):
+  en=request.session.get('eid')
+  try:
+    off_obj=Official.objects.filter(empid=en)
+  except:
+    off_obj=None
+  return render(request,'landing_official.html',{'user':off_obj})
+
 def gotosearch(request):
   return render(request, 'search.html')
 
@@ -161,6 +181,7 @@ def complaints(request):
     
   return render(request, 'view_complaints.html', context)
 
+
 def solvedcomplaints(request):
   off = request.session.get('eid')
   official_obj = Official.objects.filter(empid = off)
@@ -195,11 +216,11 @@ def officialProfile(request):
   
   if subd == 'WL':
     subdept = 'Water Leaks'
-  elif subd == 'SL':
+  elif subd == 'SS':
     subdept = "Shortage of Supply"
   elif subd == 'PF':
     subdept = "Power failure"
-  elif subd == 'LB':
+  elif subd == 'LD':
     subdept = "Line damage"
   elif subd == 'RD':
     subdept = "Road damage"
@@ -216,6 +237,10 @@ def changestatus(request, id):
   Complaints.objects.filter(id = id).update(status = 'S')
   return HttpResponseRedirect('/trial/viewcomplaints/')
 
+def contact(request, name):
+  public = Public.objects.get(name = name)
+  return HttpResponse(public.phoneno)
+
 def addpost(request):
   if request.method == "POST":
         form = BlogPost(request.POST, request.FILES)
@@ -231,7 +256,7 @@ def search(request):
   value = request.POST.get('location')
   # location_obj = tourist.objects.filter(location = value)
   context = {
-    'blogs' : Tourist.objects.filter(location = value),
+    'blogs' : Tourist.objects.filter(location__icontains = value),
   }
   return render(request, 'blogView_new.html', context)
   

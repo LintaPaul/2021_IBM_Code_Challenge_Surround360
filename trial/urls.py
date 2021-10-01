@@ -31,6 +31,8 @@ urlpatterns = [
     path('postadd/',views.addpost,name="postadd"),
     path('search/', views.gotosearch, name = "search"),
     path('neighbourhood/search/', views.search, name = "neighbourhoodSearch"),
-
+    path('backhome/',views.gobackdashboard, name="backhome"),
+    path('backofhome/',views.gobackofficial,name="backofhome"),
+    path('contact/<str:name>', views.contact, name = "contact"),
 ]
 
