@@ -251,7 +251,7 @@ def search(request):
   value = request.POST.get('location')
   # location_obj = tourist.objects.filter(location = value)
   context = {
-    'blogs' : Tourist.objects.filter(location = value),
+    'blogs' : Tourist.objects.filter(location__icontains = value),
   }
   return render(request, 'blogView_new.html', context)
   
