@@ -216,11 +216,11 @@ def officialProfile(request):
   
   if subd == 'WL':
     subdept = 'Water Leaks'
-  elif subd == 'SL':
+  elif subd == 'SS':
     subdept = "Shortage of Supply"
   elif subd == 'PF':
     subdept = "Power failure"
-  elif subd == 'LB':
+  elif subd == 'LD':
     subdept = "Line damage"
   elif subd == 'RD':
     subdept = "Road damage"
